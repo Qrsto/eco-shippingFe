@@ -6,12 +6,14 @@ import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { CustomerList } from 'src/customerlist/customerlist';
+import { OrderlistComponent } from './orderlist/orderlist.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    CustomerList
+    CustomerList,
+    OrderlistComponent
   ],
   imports: [
     BrowserModule,

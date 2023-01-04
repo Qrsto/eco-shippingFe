@@ -5,7 +5,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
-import { CustomerListComponent } from 'src/customerlist/customerlist';
+import { CustomerListComponent } from 'src/app/customerlist/customerlist';
 import { OrderlistComponent } from './orderlist/orderlist.component';
 import { RegistrautenteComponent } from './registrautente/registrautente.component';
 import { AccessoutenteComponent } from './accessoutente/accessoutente.component';

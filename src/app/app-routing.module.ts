@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CustomerListComponent as CustomerListComponent } from 'src/customerlist/customerlist';
+import { CustomerListComponent as CustomerListComponent } from 'src/app/customerlist/customerlist';
 import { AccessoutenteComponent } from './accessoutente/accessoutente.component';
 import { CreazioneordineComponent } from './creazioneordine/creazioneordine.component';
 import { GestioneordineComponent } from './gestioneordine/gestioneordine.component';

@@ -14,6 +14,15 @@ export class CreazioneOrdineService {
 
   constructor(private http: HttpClient ) { }
 
+  //metodo per la creazione di un nuovo ordine (chiamata POST)
+  createNewOrder(body: {}) {
+    return this.http.post(this.orderUrl+'ordine.json', body)
+  }
+
+
+
+  
+
   //ECCEZIONE GESTIONE
   private handleError<T>(operation = 'operation', result?: T) {
     return (error: any): Observable<T> => {

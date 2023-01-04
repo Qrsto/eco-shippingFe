@@ -7,13 +7,23 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { CustomerList } from 'src/customerlist/customerlist';
 import { OrderlistComponent } from './orderlist/orderlist.component';
+import { RegistrautenteComponent } from './registrautente/registrautente.component';
+import { AccessoutenteComponent } from './accessoutente/accessoutente.component';
+import { CreazioneordineComponent } from './creazioneordine/creazioneordine.component';
+import { GestioneordineComponent } from './gestioneordine/gestioneordine.component';
+import { PagamentoComponent } from './pagamento/pagamento.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     CustomerList,
-    OrderlistComponent
+    OrderlistComponent,
+    RegistrautenteComponent,
+    AccessoutenteComponent,
+    CreazioneordineComponent,
+    GestioneordineComponent,
+    PagamentoComponent
   ],
   imports: [
     BrowserModule,

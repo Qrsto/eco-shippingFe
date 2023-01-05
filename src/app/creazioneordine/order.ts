@@ -1,5 +1,5 @@
-import { FasciaOraria } from "../fascia-oraria";
-import { MetodoPagamento } from "../metodo-pagamento";
+import { FasciaOraria } from "../enums/fascia-oraria";
+import { MetodoPagamento } from "../enums/metodo-pagamento";
 
 export interface Order {
 

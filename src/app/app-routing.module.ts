@@ -4,7 +4,7 @@ import { CustomerListComponent as CustomerListComponent } from 'src/app/customer
 import { AccessoutenteComponent } from './accessoutente/accessoutente.component';
 import { CreazioneordineComponent } from './creazioneordine/creazioneordine.component';
 import { GestioneordineComponent } from './gestioneordine/gestioneordine.component';
-import { OrderlistComponent as OrderlistComponent } from './orderlist/orderlist.component';
+import { OrderlistComponent as OrderlistComponent } from 'src/app/orderlist/orderlist';
 import { PagamentoComponent } from './pagamento/pagamento.component';
 import { RegistrautenteComponent } from './registrautente/registrautente.component';
 

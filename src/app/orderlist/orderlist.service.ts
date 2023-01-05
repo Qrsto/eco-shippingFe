@@ -2,22 +2,24 @@ import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Observable, of } from 'rxjs';
 import { catchError, map, tap } from 'rxjs/operators';
-import { Customer } from './customer';
+import { Order } from './order';
+
+
 
 @Injectable({ providedIn: 'root' })
-export class CustomerService {
-  private customerUrl = 'http://localhost:8080/utente/clienti/';  // URL to web api
+export class OrderService {
+  private orderUrl = 'http://localhost:8080/ordine/ordini/';  // URL to web
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
   constructor(
     private http: HttpClient, ) { }
 
-  getCustomerList(): Observable<Customer[]> {
-    return this.http.get<Customer[]>(this.customerUrl)
+  getOrderList(): Observable<Order[]> {
+    return this.http.get<Order[]>(this.orderUrl)
       .pipe(
-        tap(_ => this.log('fetched customers')),
-        catchError(this.handleError<Customer[]>('getCustomer', []))
+        tap(_ => this.log('fetched orders')),
+        catchError(this.handleError<Order[]>('getOrder', []))
       );
   }
   private handleError<T>(operation = 'operation', result?: T) {
@@ -32,6 +34,6 @@ export class CustomerService {
   }
 
   private log(message: string) {
-    console.log(`CustomerService: ${message}`);
+    console.log(`OrderService: ${message}`);
   }
 }

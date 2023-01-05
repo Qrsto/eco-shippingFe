@@ -6,7 +6,7 @@ import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
 import { CustomerListComponent } from 'src/app/customerlist/customerlist';
-import { OrderlistComponent } from './orderlist/orderlist.component';
+import { OrderlistComponent } from 'src/app/orderlist/orderlist';
 import { RegistrautenteComponent } from './registrautente/registrautente.component';
 import { AccessoutenteComponent } from './accessoutente/accessoutente.component';
 import { CreazioneordineComponent } from './creazioneordine/creazioneordine.component';

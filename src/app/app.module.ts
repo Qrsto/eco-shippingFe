@@ -12,6 +12,15 @@ import { AccessoutenteComponent } from './accessoutente/accessoutente.component'
 import { CreazioneordineComponent } from './creazioneordine/creazioneordine.component';
 import { GestioneordineComponent } from './gestioneordine/gestioneordine.component';
 import { PagamentoComponent } from './pagamento/pagamento.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+//angular material 
+import { MatSlideToggleModule } from '@angular/material/slide-toggle';
+import { ProvaComponent } from './prova/prova.component';
+import {MatCardModule} from '@angular/material/card';
+import {MatButtonModule} from '@angular/material/button';
+import {MatToolbarModule} from '@angular/material/toolbar';
+import {MatIconModule} from '@angular/material/icon';
+
 
 
 @NgModule({
@@ -23,13 +32,22 @@ import { PagamentoComponent } from './pagamento/pagamento.component';
     AccessoutenteComponent,
     CreazioneordineComponent,
     GestioneordineComponent,
-    PagamentoComponent
+    PagamentoComponent,
+    ProvaComponent,
+     
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    MatSlideToggleModule,
+    MatCardModule,
+    MatButtonModule,
+    MatToolbarModule,
+    MatIconModule,
+    
   ],
   providers: [],
   bootstrap: [AppComponent]

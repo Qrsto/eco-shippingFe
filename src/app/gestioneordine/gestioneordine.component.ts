@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { GestioneOrdineService } from './gestioneordine.service';
+import { GestioneOrder } from './gestioneordine';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-gestioneordine',
@@ -6,5 +9,8 @@ import { Component } from '@angular/core';
   styleUrls: ['./gestioneordine.component.css']
 })
 export class GestioneordineComponent {
+
+    homeform: FormGroup | undefined;
+    constructor(private gestioneeordine: GestioneOrdineService ) {}
 
 }

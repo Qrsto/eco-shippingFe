@@ -10,11 +10,11 @@ import { RegistrautenteComponent } from './registrautente/registrautente.compone
 
 const routes: Routes = [  {path: 'customer-list', component: CustomerListComponent}, 
                           {path: 'order-list', component: OrderlistComponent},  //carlo
-                          {path: 'login', component: AccessoutenteComponent}, //danilo
                           {path: 'register', component: RegistrautenteComponent}, //danilo
                           {path: 'neworder', component: CreazioneordineComponent}, //domenico
                           {path: 'myorder', component: GestioneordineComponent}, //francesco
                           {path: 'payment', component: PagamentoComponent}, //domenico
+                          {path: 'login', component: AccessoutenteComponent} //danilo
                           ];
 
 @NgModule({

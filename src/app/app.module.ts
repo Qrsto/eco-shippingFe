@@ -8,10 +8,12 @@ import { HttpClientModule } from '@angular/common/http';
 import { CustomerListComponent } from 'src/app/customerlist/customerlist';
 import { OrderlistComponent } from 'src/app/orderlist/orderlist';
 import { RegistrautenteComponent } from './registrautente/registrautente.component';
-import { AccessoutenteComponent } from './accessoutente/accessoutente.component';
 import { CreazioneordineComponent } from './creazioneordine/creazioneordine.component';
 import { GestioneordineComponent } from './gestioneordine/gestioneordine.component';
 import { PagamentoComponent } from './pagamento/pagamento.component';
+<<<<<<< HEAD
+import { AccessoutenteComponent } from './accessoutente/accessoutente.component';
+=======
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 //angular material 
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
@@ -20,6 +22,7 @@ import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
+>>>>>>> ced062d7fd7360c5b4684343d3e175fbd8e5544a
 
 
 
@@ -29,12 +32,16 @@ import {MatIconModule} from '@angular/material/icon';
     CustomerListComponent,
     OrderlistComponent,
     RegistrautenteComponent,
-    AccessoutenteComponent,
     CreazioneordineComponent,
     GestioneordineComponent,
     PagamentoComponent,
+<<<<<<< HEAD
+    AccessoutenteComponent,
+
+=======
     ProvaComponent,
      
+>>>>>>> ced062d7fd7360c5b4684343d3e175fbd8e5544a
   ],
   imports: [
     BrowserModule,

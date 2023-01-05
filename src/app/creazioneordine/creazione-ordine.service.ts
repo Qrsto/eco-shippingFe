@@ -7,7 +7,7 @@ import { Order } from './order';
 export class CreazioneOrdineService {
 
   //url to web API
-  private orderUrl = 'http://localhost:8080/ordine/neworder/' 
+  private orderUrl = 'http://localhost:8080/ordine/neworder/'
   httpOptions = {
     headers: new HttpHeaders({ 'Content-Type': 'application/json' })
   };
@@ -21,7 +21,7 @@ export class CreazioneOrdineService {
 
 
 
-  
+
 
   //ECCEZIONE GESTIONE
   private handleError<T>(operation = 'operation', result?: T) {

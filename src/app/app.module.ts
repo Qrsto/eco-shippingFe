@@ -24,21 +24,14 @@ import { AccessoutenteComponent } from './accessoutente/accessoutente.component'
     CreazioneordineComponent,
     GestioneordineComponent,
     PagamentoComponent,
-    ProvaComponent,
-     
+    AccessoutenteComponent  
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     NgbModule,
     HttpClientModule,
-    BrowserAnimationsModule,
-    MatSlideToggleModule,
-    MatCardModule,
-    MatButtonModule,
-    MatToolbarModule,
-    MatIconModule,
-    
+
   ],
   providers: [],
   bootstrap: [AppComponent]

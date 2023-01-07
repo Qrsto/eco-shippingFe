@@ -1,6 +1,6 @@
 import { Component } from '@angular/core';
 import { GestioneOrdineService } from './gestioneordine.service';
-//import { GestioneOrder } from './gestioneordine';
+import { GestioneOrder } from './gestioneordine';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({

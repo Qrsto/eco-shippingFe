@@ -1,5 +1,4 @@
 import { Component } from '@angular/core';
-import { disableDebugTools } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-accessoutente',

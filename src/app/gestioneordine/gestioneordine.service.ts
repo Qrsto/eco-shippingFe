@@ -8,13 +8,13 @@ export class GestioneOrdineService {
 
   private orderUrl = 'http://localhost:8080/ordine/ordini'
     httpOptions = {
-      //headers: new HttpHeaders({ 'Content-Type': 'application/json' })
+      headers: new HttpHeaders({ 'Content-Type': 'application/json' })
     };
 
   constructor(private http: HttpClient) { }
 
   GetOrder() {
-      //return this.http.get<Ordine>(this.orderUrl)
+      return this.http.get<Ordine>(this.orderUrl)
     }
 
 }

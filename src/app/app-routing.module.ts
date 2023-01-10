@@ -5,17 +5,32 @@ import { OrderlistComponent as OrderListComponent } from './components/orderlist
 import { CreazioneordineComponent as CreazioneordineComponent } from './components/creazioneordine/creazioneordine.component';
 import { GestioneordineComponent as GestioneordineComponent } from './components/gestioneordine/gestioneordine.component';
 import { PagamentoComponent as PagamentoComponent } from './components/pagamento/pagamento.component';
+import { UserLoginComponent } from './components/user/user-login/user-login.component';
 
 
 
 
-const routes: Routes = [  {path: 'customer-list', component: CustomerListComponent}, 
-                          {path: 'order-list', component: OrderListComponent},  //carlo
-                          {path: 'neworder', component: CreazioneordineComponent}, //domenico
-                          {path: 'myorder', component: GestioneordineComponent}, //francesco
-                          {path: 'payment', component: PagamentoComponent}, //domenico
 
-                          ];
+const routes: Routes = [  {path: '',
+                          component: UserLoginComponent
+                          }, 
+                          {path: 'order-list',
+                           component: OrderListComponent
+                          },  //carlo
+                          {path: 'neworder',
+                           component: CreazioneordineComponent
+                          }, //domenico
+                          {path: 'myorder',
+                           component: GestioneordineComponent
+                          }, //francesco
+                          {path: 'payment',
+                           component: PagamentoComponent
+                          }, //domenico
+
+                          {path: 'customer-list',
+                            component: CustomerListComponent
+                          } 
+                        ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

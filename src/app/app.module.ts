@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -10,12 +11,14 @@ import { OrderlistComponent } from 'src/app/components/orderlist/orderlist';
 import { CreazioneordineComponent } from './components/creazioneordine/creazioneordine.component';
 import { GestioneordineComponent } from './components/gestioneordine/gestioneordine.component';
 import { PagamentoComponent } from './components/pagamento/pagamento.component';
+import { UserLoginComponent } from './components/user/user-login/user-login.component';
 
 
 
 
 @NgModule({
   declarations: [
+    UserLoginComponent,
     AppComponent,
     CustomerListComponent,
     OrderlistComponent,
@@ -28,6 +31,7 @@ import { PagamentoComponent } from './components/pagamento/pagamento.component';
     AppRoutingModule,
     NgbModule,
     HttpClientModule,
+    FormsModule
 
   ],
   providers: [],

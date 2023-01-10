@@ -5,7 +5,7 @@ import { OrderService } from './orderlist.service';
 @Component({
   selector: 'orderlist',
   templateUrl: './orderlist.html',
-  styleUrls: ['../app/app.component.css'] //errore?
+  styleUrls: ['./orderlist.component.css'] 
 })
 
 

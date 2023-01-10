@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'ecoshippingFe';
+
+
+ /* onInput(event: Event) {
+    console.log((<HTMLInputElement>event.target).value)
+  }
+  */
 }

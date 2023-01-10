@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { CreazioneOrdineService } from './creazione-ordine.service';
 import { Order } from './order';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
@@ -9,9 +9,19 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   templateUrl: './creazioneordine.component.html',
   styleUrls: ['./creazioneordine.component.css']
 })
-export class CreazioneordineComponent {
-  homeform: FormGroup | undefined;
-  constructor(private creazioneordine: CreazioneOrdineService ) {}
+export class CreazioneordineComponent implements OnInit {
+  immagine1 = 'https://www.ship-technology.com/wp-content/uploads/sites/8/2020/10/Feature-Image-Top-10-Shipping-Companies.jpg';
+  immagine2 = 'https://material.angular.io/assets/img/examples/shiba2.jpg';
+  constructor() {}
+  
+  ngOnInit(): void {
+
+
+    
+    //PROPERTY BINDING (VARIABILE A INTERMITTENZA)
+    
+    
+  }
 
 
 

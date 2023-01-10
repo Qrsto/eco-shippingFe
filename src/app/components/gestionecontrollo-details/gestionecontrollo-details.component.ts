@@ -60,10 +60,10 @@ ngOnInit(): void {
 
 getOrdine(id: string): void{
 
-  this.gestioneordineService.get(id).subscribe({next: (data) => {this.currentOrder = data;
+  this.gestioneordineService.get(id).subscribe({next: (data: any) => {this.currentOrder = data;
   console.log(data);
 },
-error: (e) => console.error(e)
+error: (e: any) => console.error(e)
 });
 
 }

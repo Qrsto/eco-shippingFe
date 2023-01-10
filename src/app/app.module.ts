@@ -11,7 +11,6 @@ import { OrderlistComponent } from 'src/app/components/orderlist/orderlist.compo
 import { CreazioneordineComponent } from './components/creazioneordine/creazioneordine.component';
 import { GestioneordineComponent } from './components/gestioneordine/gestioneordine.component';
 import { PagamentoComponent } from './components/pagamento/pagamento.component';
-import { UserLoginComponent } from './components/user/user-login/user-login.component';
 
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
@@ -20,7 +19,6 @@ import { MatInputModule } from '@angular/material/input';
 
 @NgModule({
   declarations: [
-    UserLoginComponent,
     AppComponent,
     CustomerListComponent,
     OrderlistComponent,

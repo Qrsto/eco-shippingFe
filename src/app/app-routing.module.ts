@@ -1,20 +1,20 @@
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CustomerListComponent as CustomerListComponent } from 'src/app/customerlist/customerlist';
-import { AccessoutenteComponent } from './accessoutente/accessoutente.component';
-import { CreazioneordineComponent } from './creazioneordine/creazioneordine.component';
-import { GestioneordineComponent } from './gestioneordine/gestioneordine.component';
-import { OrderlistComponent as OrderlistComponent } from 'src/app/orderlist/orderlist';
-import { PagamentoComponent } from './pagamento/pagamento.component';
-import { RegistrautenteComponent } from './registrautente/registrautente.component';
+import { CustomerListComponent as CustomerListComponent } from 'src/app/components/customerlist/customerlist';
+import { OrderlistComponent as OrderListComponent } from './components/orderlist/orderlist';
+import { CreazioneordineComponent as CreazioneordineComponent } from './components/creazioneordine/creazioneordine.component';
+import { GestioneordineComponent as GestioneordineComponent } from './components/gestioneordine/gestioneordine.component';
+import { PagamentoComponent as PagamentoComponent } from './components/pagamento/pagamento.component';
+
+
+
 
 const routes: Routes = [  {path: 'customer-list', component: CustomerListComponent}, 
-                          {path: 'order-list', component: OrderlistComponent},  //carlo
-                          {path: 'register', component: RegistrautenteComponent}, //danilo
+                          {path: 'order-list', component: OrderListComponent},  //carlo
                           {path: 'neworder', component: CreazioneordineComponent}, //domenico
                           {path: 'myorder', component: GestioneordineComponent}, //francesco
                           {path: 'payment', component: PagamentoComponent}, //domenico
-                          {path: 'login', component: AccessoutenteComponent} //danilo
+
                           ];
 
 @NgModule({

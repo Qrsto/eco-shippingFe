@@ -5,7 +5,7 @@ import { CustomerService } from './customerlist.service';
 @Component({
   selector: 'customerlist',
   templateUrl: './customerlist.html',
-  styleUrls: ['../app/app.component.css']
+  styleUrls: ['./customerlist.component.css']
 })
 
 

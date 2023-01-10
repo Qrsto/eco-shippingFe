@@ -5,13 +5,12 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { HttpClientModule } from '@angular/common/http';
-import { CustomerListComponent } from 'src/app/customerlist/customerlist';
-import { OrderlistComponent } from 'src/app/orderlist/orderlist';
-import { RegistrautenteComponent } from './registrautente/registrautente.component';
-import { CreazioneordineComponent } from './creazioneordine/creazioneordine.component';
-import { GestioneordineComponent } from './gestioneordine/gestioneordine.component';
-import { PagamentoComponent } from './pagamento/pagamento.component';
-import { AccessoutenteComponent } from './accessoutente/accessoutente.component';
+import { CustomerListComponent } from 'src/app/components/customerlist/customerlist';
+import { OrderlistComponent } from 'src/app/components/orderlist/orderlist';
+import { CreazioneordineComponent } from './components/creazioneordine/creazioneordine.component';
+import { GestioneordineComponent } from './components/gestioneordine/gestioneordine.component';
+import { PagamentoComponent } from './components/pagamento/pagamento.component';
+
 
 
 
@@ -20,11 +19,9 @@ import { AccessoutenteComponent } from './accessoutente/accessoutente.component'
     AppComponent,
     CustomerListComponent,
     OrderlistComponent,
-    RegistrautenteComponent,
     CreazioneordineComponent,
     GestioneordineComponent,
-    PagamentoComponent,
-    AccessoutenteComponent  
+    PagamentoComponent
   ],
   imports: [
     BrowserModule,

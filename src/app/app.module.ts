@@ -15,6 +15,7 @@ import { PagamentoComponent } from './components/pagamento/pagamento.component';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
+import { GestionecontrolloDetailsComponent } from './components/gestionecontrollo-details/gestionecontrollo-details.component';
 
 
 @NgModule({
@@ -24,7 +25,8 @@ import { MatInputModule } from '@angular/material/input';
     OrderlistComponent,
     CreazioneordineComponent,
     GestioneordineComponent,
-    PagamentoComponent
+    PagamentoComponent,
+    GestionecontrolloDetailsComponent
   ],
   imports: [
     BrowserModule,

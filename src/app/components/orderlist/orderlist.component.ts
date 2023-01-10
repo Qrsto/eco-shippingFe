@@ -3,9 +3,9 @@ import { Order } from './order';
 import { OrderService } from './orderlist.service';
 
 @Component({
-  selector: 'orderlist',
+  selector: 'app-orderlist',
   templateUrl: './orderlist.html',
-  styleUrls: ['../app/app.component.css'] //errore?
+  styleUrls: ['./orderlist.component.css'] //errore?  //Bug-Fix: dovevi creare file.css del component (importato male) ora funziona
 })
 
 

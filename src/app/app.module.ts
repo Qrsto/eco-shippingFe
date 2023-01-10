@@ -33,13 +33,10 @@ import { MatInputModule } from '@angular/material/input';
     AppRoutingModule,
     NgbModule,
     HttpClientModule,
-<<<<<<< HEAD
-    FormsModule
-=======
+    FormsModule,
     MatButtonModule,
     MatCardModule,
     MatInputModule,
->>>>>>> 119b11e3df9ef07bbd4ee37d360a11c260bb67b6
 
   ],
   providers: [],

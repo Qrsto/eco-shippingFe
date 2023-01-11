@@ -7,11 +7,6 @@ import { StorageService } from 'src/app/services/storage.service';
   templateUrl: './register.component.html',
   styleUrls: ['./register.component.css']
 })
-<<<<<<< HEAD
-export class RegisterComponent  {
-
-}
-=======
 export class RegisterComponent implements OnInit {
   form: any = {
     username: null,
@@ -51,4 +46,3 @@ export class RegisterComponent implements OnInit {
     });
   }
 }
->>>>>>> ef1e82026e79ce5fcacd78ec6723d527ba18e92f

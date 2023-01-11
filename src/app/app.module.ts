@@ -38,7 +38,8 @@ import { httpInterceptorProviders } from './helpers/http.interceptor';
     BoardRiderComponent,
     GestionecontrolloDetailsComponent,
     LoginComponent,
-    RegisterComponent
+    RegisterComponent,
+    
   ],
   imports: [
     BrowserModule,

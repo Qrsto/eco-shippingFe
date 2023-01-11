@@ -1,6 +1,229 @@
-
-
-    
-    
-
-
+<div class="col-md-12">
+    <div class="card card-container">
+      <img
+        id="profile-img"
+        src="https://i.imgur.com/4DIPv5k.png"
+        class="profile-img-card"
+      />
+      <form
+        
+        name="form"
+        (ngSubmit)="f.form.valid && onSubmit()"
+        #f="ngForm"
+        novalidate
+      >
+        <div class="form-group">
+          <label for="indirizzoPartenza">Indirizzo di partenza: </label>
+          <input
+            type="text"
+            class="form-control"
+            name="indi"
+            [(ngModel)]="form.indirizzoPartenza"
+            required
+            #indirizzoPartenza="ngModel"
+            [ngClass]="{ 'is-invalid': f.submitted && indirizzoPartenza.errors }"
+          />
+          <div *ngIf="indirizzoPartenza.errors && f.submitted" class="invalid-feedback">
+            indirizzo Errato!
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="indirizzoDestinazione">Indirizzo di consegna: </label>
+          <input
+            type="text"
+            class="form-control"
+            name="indirizzoDestinazione"
+            [(ngModel)]="form.indirizzoDestinazione"
+            required
+            #indirizzoDestinazione="ngModel"
+            [ngClass]="{ 'is-invalid': f.submitted && indirizzoDestinazione.errors }"
+          />
+          <div *ngIf="indirizzoDestinazione.errors && f.submitted" class="invalid-feedback">
+            indirizzo di consegna errato! 
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="volumeSpedizione">Volume spedizione:</label>
+          <input
+            type="text"
+            class="form-control"
+            name="indi"
+            [(ngModel)]="form.volumeSpedizione"
+            required
+            #volumeSpedizione="ngModel"
+            [ngClass]="{ 'is-invalid': f.submitted && volumeSpedizione.errors }"
+          />
+          <div *ngIf="volumeSpedizione.errors && f.submitted" class="invalid-feedback">
+            Username is required!
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="pesoSpedizione">Peso del pacco in kg: </label>
+          <input
+            type="text"
+            class="form-control"
+            name="indi"
+            [(ngModel)]="form.pesoSpedizione"
+            required
+            #pesoSpedizione="ngModel"
+            [ngClass]="{ 'is-invalid': f.submitted && pesoSpedizione.errors }"
+          />
+          <div *ngIf="pesoSpedizione.errors && f.submitted" class="invalid-feedback">
+            Username is required!
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="numTelefonoDestinatario">Numero di telefono: </label>
+          <input
+            type="text"
+            class="form-control"
+            name="indi"
+            [(ngModel)]="form.numTelefonoDestinatario"
+            required
+            #numTelefonoDestinatario="ngModel"
+            [ngClass]="{ 'is-invalid': f.submitted && numTelefonoDestinatario.errors }"
+          />
+          <div *ngIf="numTelefonoDestinatario.errors && f.submitted" class="invalid-feedback">
+            Username is required!
+          </div>
+        </div>
+  
+        <!--
+          API PER METODO DI PAGAMENTO 
+        -->
+        <div class="form-group">
+          <label for="metodoPagamento">Metodo di pagamento : </label>
+          <input
+            type="text"
+            class="form-control"
+            name="indi"
+            [(ngModel)]="form.metodoPagamento"
+            required
+            #metodoPagamento="ngModel"
+            [ngClass]="{ 'is-invalid': f.submitted && metodoPagamento.errors }"
+          />
+          <div *ngIf="metodoPagamento.errors && f.submitted" class="invalid-feedback">
+            Username is required!
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="fasciaOraria">In che momento della giornata vorresti avvenisse il tuo ordine? </label>
+          <input
+            type="text"
+            class="form-control"
+            name="indi"
+            [(ngModel)]="form.fasciaOraria"
+            required
+            #fasciaOraria="ngModel"
+            [ngClass]="{ 'is-invalid': f.submitted && fasciaOraria.errors }"
+          />
+          <div *ngIf="fasciaOraria.errors && f.submitted" class="invalid-feedback">
+            Username is required!
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="noteConsegna">Descrivici la tua consegna: </label>
+          <input
+            type="text"
+            class="form-control"
+            name="indi"
+            [(ngModel)]="form.noteConsegna"
+            required
+            #noteConsegna="ngModel"
+            [ngClass]="{ 'is-invalid': f.submitted && noteConsegna.errors }"
+          />
+          <div *ngIf="noteConsegna.errors && f.submitted" class="invalid-feedback">
+            Username is required!
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="costoFinale">Totale costo della tua cosnegna: </label>
+          <input
+            type="text"
+            class="form-control"
+            name="indi"
+            [(ngModel)]="form.costoFinale"
+            required
+            #costoFinale="ngModel"
+            [ngClass]="{ 'is-invalid': f.submitted && costoFinale.errors }"
+          />
+          <div *ngIf="costoFinale.errors && f.submitted" class="invalid-feedback">
+            ------
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="longitudinePartenza">Longitudine partenza</label>
+          <input
+            type="text"
+            class="form-control"
+            name="indi"
+            [(ngModel)]="form.longitudinePartenza"
+            required
+            #longitudinePartenza="ngModel"
+            [ngClass]="{ 'is-invalid': f.submitted && longitudinePartenza.errors }"
+          />
+          <div *ngIf="longitudinePartenza.errors && f.submitted" class="invalid-feedback">
+            Username is required!
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="latitudinePartenza">Latitudine partenza: </label>
+          <input
+            type="text"
+            class="form-control"
+            name="indi"
+            [(ngModel)]="form.latitudinePartenza"
+            required
+            #latitudinePartenza="ngModel"
+            [ngClass]="{ 'is-invalid': f.submitted && latitudinePartenza.errors }"
+          />
+          <div *ngIf="latitudinePartenza.errors && f.submitted" class="invalid-feedback">
+            Username is required!
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="longitudineDestinazione">Longitudine Destinazione:</label>
+          <input
+            type="text"
+            class="form-control"
+            name="indi"
+            [(ngModel)]="form.longitudineDestinazione"
+            required
+            #longitudineDestinazione="ngModel"
+            [ngClass]="{ 'is-invalid': f.submitted && longitudineDestinazione.errors }"
+          />
+          <div *ngIf="longitudineDestinazione.errors && f.submitted" class="invalid-feedback">
+            Username is required!
+          </div>
+        </div>
+        <div class="form-group">
+          <label for="latitudineDestinazione">latitudine destinazione: </label>
+          <input
+            type="text"
+            class="form-control"
+            name="indi"
+            [(ngModel)]="form.latitudineDestinazione"
+            required
+            #latitudineDestinazione="ngModel"
+            [ngClass]="{ 'is-invalid': f.submitted && latitudineDestinazione.errors }"
+          />
+          <div *ngIf="latitudineDestinazione.errors && f.submitted" class="invalid-feedback">
+            Username is required!
+          </div>
+        </div>
+        
+        <div class="form-group">
+          <button class="btn btn-primary btn-block" (click)="onSubmit()">
+            Crea Ordine
+          </button>
+        </div>
+        <div class="form-group">
+          <div *ngIf="f.submitted" class="alert alert-danger" role="alert">
+            Login failed: {{ errorMessage }}
+          </div>
+        </div>
+      </form>
+  
+      
+    </div>
+  </div>

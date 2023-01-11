@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { CreazioneOrdineService } from './creazione-ordine.service';
-import { Order } from './order';
-import { FormControl, FormGroup, Validators } from '@angular/forms';
-
+import { GestioneordineService } from 'src/app/services/gestioneordine.service';
+import { StorageService } from 'src/app/services/storage.service';
 
 @Component({
   selector: 'app-creazioneordine',
@@ -10,39 +8,78 @@ import { FormControl, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./creazioneordine.component.css']
 })
 export class CreazioneordineComponent implements OnInit {
-  immagine1 = 'https://www.ship-technology.com/wp-content/uploads/sites/8/2020/10/Feature-Image-Top-10-Shipping-Companies.jpg';
-  immagine2 = 'https://material.angular.io/assets/img/examples/shiba2.jpg';
-  constructor() {}
   
-  ngOnInit(): void {
-
-
-    
-    //PROPERTY BINDING (VARIABILE A INTERMITTENZA)
-    
-    
-  }
-
-
-
-
-
-  //https://www.youtube.com/watch?v=U-5LaMAj0oM
- 
- /* ngOnInit(): void {
-    this.homeform = new FormGroup({
-      nome: new FormControl(null, Validators.required),
-      email: new FormControl(null,[Validators.required, Validators.email]),
-      colore: new FormControl(),
-    });
-    this.creazioneordine.createNewOrder(
-      {nome: 'Domenico', email: 'domenicorrr@gdf.it'}
-    ).subscribe(data => {
-      console.log(data);
-    });
+  form: any  = {
+    indirizzoPartenza: null,
+    indirizzoDestinazione: null,
+    volumeSpedizione: null,
+    pesoSpedizione: null,
+    numTelefonoDestinatario: null,
+    metodoPagamento: null,
+    fasciaOraria: null,
+    noteConsegna: null,
+    costoFinale: null,
+    longitudinePartenza: null,
+    latitudinePartenza: null,
+    longitudineDestinazione: null,
+    latitudineDestinazione: null
   };
-  order: any;
-  */
+  errorMessage = '';
+  
+  constructor(private gestioneOrdineService: GestioneordineService, private storageService:StorageService) {}
+
+  ngOnInit(): void { 
+
+  }
+    onSubmit(): void {
+      
+      const { 
+      indirizzoPartenza,
+      indirizzoDestinazione,
+      volumeSpedizione,
+      pesoSpedizione,
+      numTelefonoDestinatario,
+      metodoPagamento,
+      fasciaOraria,
+      noteConsegna,
+      costoFinale,
+      longitudinePartenza,
+      latitudinePartenza,
+      longitudineDestinazione,
+      latitudineDestinazione,
+      } = this.form;
+  
+    this.gestioneOrdineService.create(
+      indirizzoPartenza,
+      indirizzoDestinazione,
+      volumeSpedizione,
+      pesoSpedizione,
+      numTelefonoDestinatario,
+      metodoPagamento,
+      fasciaOraria,
+      noteConsegna,
+      costoFinale,
+      longitudinePartenza,
+      latitudinePartenza,
+      longitudineDestinazione,
+      latitudineDestinazione).subscribe({
+        next : data => {
+          this.storageService.saveOrder(data);
+          this.reloadPage();
+        },
+        error: err => {
+          this.errorMessage = err.error.message;
+        }
+      })
   
   
+     
+      };
+  
+  
+      reloadPage(): void {
+        window.location.reload();
+      }
+
 }
+

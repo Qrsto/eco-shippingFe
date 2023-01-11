@@ -25,6 +25,8 @@ export class CreazioneordineComponent implements OnInit {
     latitudineDestinazione: null
   };
   errorMessage = '';
+  isSuccessful = false;
+  isCreateOrderFailed = false;
   
   constructor(private gestioneOrdineService: GestioneordineService, private storageService:StorageService) {}
 
@@ -64,11 +66,15 @@ export class CreazioneordineComponent implements OnInit {
       longitudineDestinazione,
       latitudineDestinazione).subscribe({
         next : data => {
+          console.log(data);
+          this.isSuccessful = true;
+          this.isCreateOrderFailed = false;
           this.storageService.saveOrder(data);
-          this.reloadPage();
+          
         },
         error: err => {
           this.errorMessage = err.error.message;
+          this.isCreateOrderFailed = true;
         }
       })
   
@@ -77,9 +83,7 @@ export class CreazioneordineComponent implements OnInit {
       };
   
   
-      reloadPage(): void {
-        window.location.reload();
-      }
+      
 
 }
 

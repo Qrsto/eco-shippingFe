@@ -34,9 +34,12 @@ export class AppComponent {
     this.authService.logout().subscribe({
       next: res => {
         console.log(res);
+        
+        sessionStorage.removeItem("auth-user");
         this.storageService.clean();
-
         window.location.reload();
+
+
       },
       error: err => {
         console.log(err);

@@ -1,5 +1,10 @@
 <div class="col-md-12">
   <div class="card card-container">
+    <img
+    id="profile-img"
+    src="https://i.imgur.com/4DIPv5k.png"
+    class="profile-img-card"
+  />
     <form
       *ngIf="!isSuccessful"
       name="form"
@@ -203,7 +208,7 @@
       </div>
 <br>
       <div class="form-group">
-        <button class="btn btn-primary btn-block">Sign Up</button>
+        <button class="btn btn-primary btn-block btn-lg">Registrati</button>
       </div>
 
       <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">

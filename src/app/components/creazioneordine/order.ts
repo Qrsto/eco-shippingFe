@@ -16,7 +16,4 @@ export interface Order {
     latitudineDestinazione: number;
     longitudineDestinazione: number;
     
-
-
-    
   }

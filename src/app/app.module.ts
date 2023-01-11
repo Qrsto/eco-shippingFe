@@ -16,7 +16,7 @@ import { HomeComponent } from './components/home/home.component'
 import { ProfileComponent } from './components/profile/profile.component';
 import { BoardAdminComponent } from './components/board-admin/board-admin.component';
 import { BoardUserComponent } from './components/board-user/board-user.component';
-import { BoardModeratorComponent } from './components/board-moderator/board-moderator.component';
+import { BoardRiderComponent } from './components/board-rider/board-rider.component';
 import { GestionecontrolloDetailsComponent } from './components/gestionecontrollo-details/gestionecontrollo-details.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
@@ -35,7 +35,7 @@ import { httpInterceptorProviders } from './helpers/http.interceptor';
     ProfileComponent,
     BoardAdminComponent,
     BoardUserComponent,
-    BoardModeratorComponent,
+    BoardRiderComponent,
     GestionecontrolloDetailsComponent,
     LoginComponent,
     RegisterComponent

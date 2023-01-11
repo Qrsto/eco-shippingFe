@@ -48,7 +48,7 @@ export class GestioneordineService {
     latitudineDestinazione: number,
   ): Observable<any> {
     return this.http.post(
-      baseUrl + `new`,{
+      baseUrl + `/new`,{
         indirizzoPartenza,
         indirizzoConsegna,
         volumeSpedizione,
@@ -62,8 +62,8 @@ export class GestioneordineService {
         latitudinePartenza,
         longitudineDestinazione,
         latitudineDestinazione
-      }
-    )
+      }, httpOptions
+    );
 
   }
 

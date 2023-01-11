@@ -28,14 +28,14 @@ export class CreazioneordineComponent implements OnInit {
   isSuccessful = false;
   isCreateOrderFailed = false;
   
-  constructor(private gestioneOrdineService: GestioneordineService, private storageService:StorageService) {}
+  constructor(private gestioneOrdineService: GestioneordineService) {}
 
   ngOnInit(): void { 
 
   }
-    onSubmit(): void {
-      
-      const { 
+  
+  onSubmit(): void {
+    const { 
       indirizzoPartenza,
       indirizzoDestinazione,
       volumeSpedizione,
@@ -69,21 +69,13 @@ export class CreazioneordineComponent implements OnInit {
           console.log(data);
           this.isSuccessful = true;
           this.isCreateOrderFailed = false;
-          this.storageService.saveOrder(data);
           
         },
         error: err => {
           this.errorMessage = err.error.message;
           this.isCreateOrderFailed = true;
         }
-      })
-  
-  
-     
-      };
-  
-  
-      
-
+    });
+  }
 }
 

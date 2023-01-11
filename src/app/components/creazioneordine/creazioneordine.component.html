@@ -211,18 +211,23 @@
             Username is required!
           </div>
         </div>
-        
+<br>        
         <div class="form-group">
-          <button class="btn btn-primary btn-block" (click)="onSubmit()">
+          <button class="btn btn-primary btn-block">
             Crea Ordine
           </button>
         </div>
         <div class="form-group">
-          <div *ngIf="f.submitted" class="alert alert-danger" role="alert">
+          <div *ngIf="f.submitted && isCreateOrderFailed" class="alert alert-danger" role="alert">
             Login failed: {{ errorMessage }}
           </div>
         </div>
+
+
       </form>
+      <div class="alert alert-success" *ngIf="isSuccessful">
+        Oridine Creato! 
+      </div>
   
       
     </div>

@@ -36,8 +36,9 @@ export class StorageService {
   }
 
 
-  public saveOrder(order : any): void {
+  /*public saveOrder(order : any): void {
     window.sessionStorage.removeItem(USER_KEY);
     window.sessionStorage.setItem(USER_KEY, JSON.stringify(order));
   }
+  */
 }

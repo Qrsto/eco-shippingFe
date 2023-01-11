@@ -8,17 +8,9 @@ import { AuthService } from 'src/app/services/auth.service';
 })
 export class RegisterComponent implements OnInit {
   form: any = {
-    //vedi auth.services (singup)
     username: null,
     email: null,
-    password: null,
-    numTelefono: null,
-    dataNascita: null,
-    citta: null,
-    cap: null,
-    indirizzo: null,
-
-
+    password: null
   };
   isSuccessful = false;
   isSignUpFailed = false;
@@ -30,9 +22,9 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit(): void {
-    const { username, email, password, numTelefono, dataNascita, citta, cap, indirizzo } = this.form;
+    const { username, email, password } = this.form;
 
-    this.authService.register(username, email, password,numTelefono,dataNascita,citta,cap,indirizzo).subscribe({
+    this.authService.register(username, email, password).subscribe({
       next: data => {
         console.log(data);
         this.isSuccessful = true;

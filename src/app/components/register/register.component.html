@@ -1,0 +1,226 @@
+<<<<<<< HEAD
+=======
+<div class="col-md-12">
+  <div class="card card-container">
+    <img
+    id="profile-img"
+    src="https://i.imgur.com/4DIPv5k.png"
+    class="profile-img-card"
+  />
+    <form
+      *ngIf="!isSuccessful"
+      name="form"
+      (ngSubmit)="f.form.valid && onSubmit()"
+      #f="ngForm"
+      novalidate
+    >
+      <div class="form-group">
+        <label for="username">Username</label>
+        <input
+          type="text"
+          class="form-control"
+          name="username"
+          [(ngModel)]="form.username"
+          required
+          minlength="3"
+          maxlength="20"
+          #username="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && username.errors }"
+        />
+        <div class="invalid-feedback" *ngIf="username.errors && f.submitted">
+          <div *ngIf="username.errors['required']">Username is required</div>
+          <div *ngIf="username.errors['minlength']">
+            Username must be at least 3 characters
+          </div>
+          <div *ngIf="username.errors['maxlength']">
+            Username must be at most 20 characters
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="email">Email</label>
+        <input
+          type="email"
+          class="form-control"
+          name="email"
+          [(ngModel)]="form.email"
+          required
+          email
+          #email="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && email.errors }"
+        />
+        <div class="invalid-feedback" *ngIf="email.errors && f.submitted">
+          <div *ngIf="email.errors['required']">Inserisci un indirizzo email</div>
+          <div *ngIf="email.errors['email']">
+            L'indirizzo email non e' valido
+          </div>
+        </div>
+      </div>
+      <div class="form-group">
+        <label for="password">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          name="password"
+          [(ngModel)]="form.password"
+          required
+          minlength="6"
+          #password="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && password.errors }"
+        />
+        <div class="invalid-feedback" *ngIf="password.errors && f.submitted">
+          <div *ngIf="password.errors['required']">Inserisci una password</div>
+          <div *ngIf="password.errors['minlength']">
+            La password deve contenere almeno 6 caratteri
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="nome">Nome</label>
+        <input
+          type="text"
+          class="form-control"
+          name="nome"
+          [(ngModel)]="form.nome"
+          required
+          nome
+          #nome="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && nome.errors}"
+        />
+        <div class="invalid-feedback" *ngIf="nome.errors">
+          <div *ngIf="nome.errors['required']">Il campo nome e' obbligatorio</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="cognome">Cognome</label>
+        <input
+          type="text"
+          class="form-control"
+          name="cognome"
+          [(ngModel)]="form.cognome"
+          required
+          cognome
+          #cognome="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && cognome.errors}"
+        />
+        <div class="invalid-feedback" *ngIf="cognome.errors">
+          <div *ngIf="cognome.errors['required']">Il campo cognome e' obbligatorio</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="citta">Città</label>
+        <input
+          type="text"
+          class="form-control"
+          name="citta"
+          [(ngModel)]="form.citta"
+          required
+          citta
+          #citta="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && citta.errors}"
+        />
+        <div class="invalid-feedback" *ngIf="citta.errors">
+          <div *ngIf="citta.errors['required']">Il campo città e' obbligatorio</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="cap">CAP</label>
+        <input
+          type="text"
+          class="form-control"
+          name="cap"
+          [(ngModel)]="form.cap"
+          required
+          cap
+          #cap="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && cap.errors}"
+        />
+        <div class="invalid-feedback" *ngIf="cap.errors">
+          <div *ngIf="cap.errors['required']">Il campo CAP e' obbligatorio</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="indirizzoResidenza">Indirizzo di Residenza</label>
+        <input
+          type="text"
+          class="form-control"
+          name="indirizzoResidenza"
+          [(ngModel)]="form.indirizzoResidenza"
+          required
+          indirizzoResidenza
+          #indirizzoResidenza="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && indirizzoResidenza.errors}"
+        />
+        <div class="invalid-feedback" *ngIf="indirizzoResidenza.errors">
+          <div *ngIf="indirizzoResidenza.errors['required']">Il campo indirizzo e' obbligatorio</div>
+        </div>
+      </div>
+
+
+      <div class="form-group">
+        <label for="dataNasc">Data di Nascita</label>
+        <input
+          type="date"
+          class="form-control"
+          name="dataNasc"
+          [(ngModel)]="form.dataNasc"
+          required
+          dataNasc
+          #dataNasc="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && dataNasc.errors}"
+        />
+        <div class="invalid-feedback" *ngIf="dataNasc.errors">
+          <div *ngIf="dataNasc.errors['required']">Il campo data nascita e' obbligatorio</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="mobile">Numero di telefono</label>
+        <input
+          type="text"
+          class="form-control"
+          name="mobile"
+          [(ngModel)]="form.mobile"
+          required
+          mobile
+          #mobile="ngModel"
+          [ngClass]="{ 'is-invalid': f.submitted && mobile.errors}"
+        />
+        <div class="invalid-feedback" *ngIf="mobile.errors">
+          <div *ngIf="mobile.errors['required']">Il campo telefono e' obbligatorio</div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <label for="mobile">IBAN</label>
+        <input
+          type="text"
+          class="form-control"
+          name="iban"
+          [(ngModel)]="form.iban"
+          required
+          iban
+          #iban="ngModel"
+        />
+      </div>
+<br>
+      <div class="form-group">
+        <button class="btn btn-primary btn-block btn-lg">Registrati</button>
+      </div>
+
+      <div class="alert alert-warning" *ngIf="f.submitted && isSignUpFailed">
+        Signup failed!<br />{{ errorMessage }}
+      </div>
+    </form>
+
+    <div class="alert alert-success" *ngIf="isSuccessful">
+      Your registration is successful!
+    </div>
+  </div>
+</div>
+>>>>>>> ef1e82026e79ce5fcacd78ec6723d527ba18e92f

@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { GestioneordineService } from 'src/app/services/gestioneordine.service';
 import { StorageService } from 'src/app/services/storage.service';
@@ -8,6 +9,10 @@ import { StorageService } from 'src/app/services/storage.service';
   styleUrls: ['./creazioneordine.component.css']
 })
 export class CreazioneordineComponent implements OnInit {
+
+  latitudinePartenza='';
+  longitudinePartenza='';
+  indirizzoPartenza= '';
   
   form: any  = {
     indirizzoPartenza: null,
@@ -19,16 +24,23 @@ export class CreazioneordineComponent implements OnInit {
     fasciaOraria: null,
     noteConsegna: null,
     costoFinale: null,
-    longitudinePartenza: null,
-    latitudinePartenza: null,
     longitudineDestinazione: null,
-    latitudineDestinazione: null
+    latitudineDestinazione: null,
   };
   errorMessage = '';
   isSuccessful = false;
   isCreateOrderFailed = false;
   
-  constructor(private gestioneOrdineService: GestioneordineService) {}
+  constructor(private gestioneOrdineService: GestioneordineService, private http: HttpClient) {}
+
+  getCoords() {
+    this.http.get(`hhttps://maps.googleapis.com/maps/api/geocode/json?address=${this.indirizzoPartenza}&key=AIzaSyBxAaAAMuDA0A9mJBvRVaz0GbPUHwTj8DA`)
+      .subscribe((data: any) => {
+        this.latitudinePartenza = data.results[0].geometry.location.lat;
+        this.longitudinePartenza = data.results[0].geometry.location.lng;
+        console.log(this.latitudinePartenza);
+      });
+  }
 
   ngOnInit(): void { 
 

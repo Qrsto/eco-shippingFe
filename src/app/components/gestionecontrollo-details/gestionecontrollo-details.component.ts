@@ -10,7 +10,10 @@ import { GestioneordineService } from 'src/app/services/gestioneordine.service';
 })
 export class GestionecontrolloDetailsComponent implements OnInit{
 
-/*orders?: Gestioneordine[];
+orders?: Gestioneordine[];
+currentOrder: Gestioneordine = {};
+currentIndex = -1;
+id = '';
 
   constructor(private gestioneordineService: GestioneordineService){}
 
@@ -27,45 +30,43 @@ export class GestionecontrolloDetailsComponent implements OnInit{
     });
 
   }
-*/
-@Input() viewMode = false;
 
-@Input() currentOrder: Gestioneordine = {
+  searchId(): void {
 
-  indirizzoPartenza: '',
-  indirizzoConsegna: '',
-  volume : NaN ,
-  peso: NaN,
-  metodoPagamento: NaN,
-  costoFinale: NaN
-  
-};
+    this.currentOrder = {};
+    this.currentIndex = -1;
 
-message = '';
-
-constructor(
-  private gestioneordineService: GestioneordineService,
-  private route: ActivatedRoute,
-  private router: Router) {}
-
-
-ngOnInit(): void {
-  if (!this.viewMode){
-
-    this.message = '';
-    this.getOrdine(this.route.snapshot.params["id"]);
+    this.gestioneordineService.get(this.id).subscribe({
+      next: (data) => {
+        this.orders = data;
+        console.log(data);
+      },
+      error: (e) => console.error(e)
+    });
 
   }
-}
 
-getOrdine(id: string): void{
+  setActiveOrders(order: Gestioneordine, index: number): void {
+    this.currentOrder = order;
+    this.currentIndex = index;
+  }
 
-  this.gestioneordineService.get(id).subscribe({next: (data: any) => {this.currentOrder = data;
-  console.log(data);
-},
-error: (e: any) => console.error(e)
-});
+  refreshList(): void {
+    this.retrieveOrdini();
+    this.currentOrder = {};
+    this.currentIndex = -1;
+  }
 
-}
+  removeAllOrders(): void {
+    this.gestioneordineService.deleteAll()
+      .subscribe({
+        next: (res) => {
+          console.log(res);
+          this.refreshList();
+        },
+        error: (e) => console.error(e)
+      });
+  }
+
 
 }

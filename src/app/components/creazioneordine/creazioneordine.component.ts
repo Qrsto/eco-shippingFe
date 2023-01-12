@@ -9,10 +9,6 @@ import { StorageService } from 'src/app/services/storage.service';
   styleUrls: ['./creazioneordine.component.css']
 })
 export class CreazioneordineComponent implements OnInit {
-
-  latitudinePartenza='';
-  longitudinePartenza='';
-  indirizzoPartenza= '';
   
   form: any  = {
     indirizzoPartenza: null,
@@ -24,8 +20,10 @@ export class CreazioneordineComponent implements OnInit {
     fasciaOraria: null,
     noteConsegna: null,
     costoFinale: null,
+    longitudinePartenza: null,
+    latitudinePartenza: null,
     longitudineDestinazione: null,
-    latitudineDestinazione: null,
+    latitudineDestinazione: null
   };
   errorMessage = '';
   isSuccessful = false;

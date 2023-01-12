@@ -31,6 +31,14 @@ export class GestioneordineService {
     return this.http.get<any>(baseUrl + `/orders`);  
   }
 
+  update(id: any, data: any): Observable<any> {
+    return this.http.put(`${baseUrl}/${id}`, data);
+  }
+
+  deleteAll(): Observable<any> {
+    return this.http.delete(baseUrl);
+  }
+
   //metodio per la creazione di un nuovo ordine
   create(
     indirizzoPartenza: string,

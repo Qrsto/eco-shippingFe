@@ -74,6 +74,14 @@
             "browserTarget": "ecoshippingFe:build"
           }
         },
+          "architect": {
+                  "build": {
+                    "options": {
+                      "allowedCommonJsDependencies": ["crypto-browserify"], // note that this is the key of --> "crypto":["node_modules/crypto-js"]"
+                    }
+                  }
+              }
+          },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {

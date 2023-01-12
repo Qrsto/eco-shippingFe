@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { GestioneordineService } from 'src/app/services/gestioneordine.service';
 import { StorageService } from 'src/app/services/storage.service';
 
@@ -33,6 +33,10 @@ export class CreazioneordineComponent implements OnInit {
   
   constructor(private gestioneOrdineService: GestioneordineService, private http: HttpClient) {}
 
+  
+  
+
+
   getCoords() {
     this.http.get(`hhttps://maps.googleapis.com/maps/api/geocode/json?address=${this.indirizzoPartenza}&key=AIzaSyBxAaAAMuDA0A9mJBvRVaz0GbPUHwTj8DA`)
       .subscribe((data: any) => {
@@ -43,10 +47,11 @@ export class CreazioneordineComponent implements OnInit {
   }
 
   ngOnInit(): void { 
+    
 
   }
   
-  onSubmit(): void {
+   onSubmit(): void {
     const { 
       indirizzoPartenza,
       indirizzoDestinazione,

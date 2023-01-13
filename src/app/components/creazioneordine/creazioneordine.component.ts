@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { GestioneordineService } from 'src/app/services/gestioneordine.service';
 import { StorageService } from 'src/app/services/storage.service';
+import { HttpClient } from '@angular/common/http';
+import { HttpHeaders } from '@angular/common/http';
+import { forkJoin } from 'rxjs';
 
 @Component({
   selector: 'app-creazioneordine',
@@ -8,6 +11,7 @@ import { StorageService } from 'src/app/services/storage.service';
   styleUrls: ['./creazioneordine.component.css']
 })
 export class CreazioneordineComponent implements OnInit {
+  
   
   form: any  = {
     indirizzoPartenza: null,
@@ -28,11 +32,23 @@ export class CreazioneordineComponent implements OnInit {
   isSuccessful = false;
   isCreateOrderFailed = false;
   
-  constructor(private gestioneOrdineService: GestioneordineService) {}
+  constructor(private gestioneOrdineService: GestioneordineService,private http: HttpClient) {}
+  address= "via roma 10, gioia del colle";
+  
 
   ngOnInit(): void { 
-
   }
+
+  getCoordinates(address: string) {
+    const url = `https://nominatim.openstreetmap.org/search?q=${address}&format=json&addressdetails=1`;
+    this.http.get<{ features: any[] }>(url).subscribe(result => {
+      console.log(result.features[0].center);
+    });
+  }
+
+
+
+
   
   onSubmit(): void {
     const { 

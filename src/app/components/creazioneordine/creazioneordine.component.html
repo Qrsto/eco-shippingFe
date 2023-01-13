@@ -8,7 +8,7 @@
       <form
         
         name="form"
-        (ngSubmit)="f.form.valid && onSubmit()"
+        (ngSubmit)="f.form.valid && getCoordinates(form.indirizzoPartenza)"
         #f="ngForm"
         novalidate
       >
@@ -151,7 +151,7 @@
             ------
           </div>
         </div>
-        <div class="form-group">
+        <!--<div class="form-group">
           <label for="longitudinePartenza">Longitudine partenza</label>
           <input
             type="text"
@@ -210,7 +210,7 @@
           <div *ngIf="latitudineDestinazione.errors && f.submitted" class="invalid-feedback">
             Username is required!
           </div>
-        </div>
+        </div> -->
 <br>        
         <div class="form-group">
           <button class="btn btn-primary btn-block">

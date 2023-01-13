@@ -1,8 +1,11 @@
-import { Component, EventEmitter, OnInit, Output } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Order } from '../orderlist/order';
 import { Observable, catchError } from 'rxjs';
 import { getNumberOfCurrencyDigits } from '@angular/common';
 import { EventManager } from '@angular/platform-browser';
+import { OrderService } from '../orderlist/orderlist.service';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-pagamento',
@@ -10,8 +13,13 @@ import { EventManager } from '@angular/platform-browser';
   styleUrls: ['./pagamento.component.css']
 })
 export class PagamentoComponent implements OnInit {
+
+  //attendo un input da creaOrdinecomponent
+  @Input() ordine: any;
+
+
   ngOnInit(): void {
-      
+
   }
 
   
@@ -28,7 +36,11 @@ export class PagamentoComponent implements OnInit {
   isCreatePaymentFailed = false;
 
 
-  constructor() {}
+  constructor(private readonly router:Router) {}
+
+  
+
+  
 
   onSubmit() : boolean {
     const {

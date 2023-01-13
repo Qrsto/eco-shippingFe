@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { GestioneordineService } from 'src/app/services/gestioneordine.service';
 import { StorageService } from 'src/app/services/storage.service';
 
@@ -10,7 +11,7 @@ import { StorageService } from 'src/app/services/storage.service';
 })
 export class CreazioneordineComponent implements OnInit {
   
-  form: any  = {
+  formOrder: any  = {
     indirizzoPartenza: null,
     indirizzoDestinazione: null,
     volumeSpedizione: null,
@@ -29,18 +30,22 @@ export class CreazioneordineComponent implements OnInit {
   isSuccessful = false;
   isCreateOrderFailed = false;
   
-  constructor(private gestioneOrdineService: GestioneordineService, private http: HttpClient) {}
+  constructor(private gestioneOrdineService: GestioneordineService, private http: HttpClient, private readonly router: Router) {}
+
+  goToPayment() {
+    this.router.navigate(['payment']);
+  }
 
   
   
 
 
   getCoords() {
-    this.http.get(`hhttps://maps.googleapis.com/maps/api/geocode/json?address=${this.indirizzoPartenza}&key=AIzaSyBxAaAAMuDA0A9mJBvRVaz0GbPUHwTj8DA`)
+    this.http.get(`hhttps://maps.googleapis.com/maps/api/geocode/json?address=${this.formOrder.indirizzoPartenza}&key=AIzaSyBxAaAAMuDA0A9mJBvRVaz0GbPUHwTj8DA`)
       .subscribe((data: any) => {
-        this.latitudinePartenza = data.results[0].geometry.location.lat;
-        this.longitudinePartenza = data.results[0].geometry.location.lng;
-        console.log(this.latitudinePartenza);
+        this.formOrder.latitudinePartenza = data.results[0].geometry.location.lat;
+        this.formOrder.longitudinePartenza = data.results[0].geometry.location.lng;
+        console.log(this.formOrder.latitudinePartenza);
       });
   }
 
@@ -64,7 +69,7 @@ export class CreazioneordineComponent implements OnInit {
       latitudinePartenza,
       longitudineDestinazione,
       latitudineDestinazione,
-      } = this.form;
+      } = this.formOrder;
   
     this.gestioneOrdineService.create(
       indirizzoPartenza,

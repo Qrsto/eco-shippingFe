@@ -2,8 +2,7 @@ import { MetodoPagamento } from "../enums/metodo-pagamento";
 import { FasciaOraria } from "../enums/fascia-oraria";
 
 export interface Order {
-    idOrdine: BigInt;
-    idSpedizione: BigInt;
+    
     indirizzoPartenza: string;
     indirizzoConsegna: string;
     volumeSpedizione: number;

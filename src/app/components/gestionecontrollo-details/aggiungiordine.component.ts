@@ -11,45 +11,10 @@ import { OrdineService } from './ordine.service';
 export class AddOrderComponent implements OnInit {  
   
   constructor(private ordineservice:OrdineService) { }  
+    ngOnInit(): void {
+        throw new Error('Method not implemented.');
+    }
   
-  ordine : Ordine=new Ordine();  
-  submitted = false;  
   
-  ngOnInit() {  
-    this.submitted=false;  
-  }  
   
-  ordinesaveform =new FormGroup({    
-    indirizzoPartenza:new FormControl(),  
-    indirizzoConsegna:new FormControl()  
-  });  
-  
-  saveOrder(saveOrder: any){  
-    this.ordine=new Ordine();       
-    this.ordine.indirizzoPartenza=this.indirizzoPartenza?.value;  
-    this.ordine.indirizzoConsegna=this.indirizzoConsegna?.value;  
-    this.submitted = true;  
-    this.save();  
-  }  
-  
-    
-  
-  save() {  
-    this.ordineservice.createOrder(this.ordine)  
-      .subscribe(data => console.log(data), error => console.log(error));  
-    this.ordine = new Ordine();  
-  }  
-  
-  get indirizzoPartenza(){  
-    return this.ordinesaveform.get('indirizzoPartenza');  
-  }  
-  
-  get indirizzoConsegna(){  
-    return this.ordinesaveform.get('indirizzoConsegna');  
-  }  
-  
-  addOrderForm(){  
-    this.submitted=false;  
-    this.ordinesaveform.reset();  
-  }  
 }  

@@ -1,0 +1,45 @@
+
+
+
+
+
+<h1><strong>{{ currentUser.username }}</strong> </h1>
+
+<div class="container">
+    <h5 class="text-center mt-3">Ordini</h5>
+    <div class="d-flex my-2">
+        <a href="#" routerLink="/createorder" class="btn btn-outline-success ms-auto">Create New Order</a>
+    </div>
+    <div class="table-responsive">
+        <table class="table table-bordered p-0 m-0">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Id</th>
+                    <th scope="col">indirizzoPartenza</th>
+                    <th scope="col">indirizzoConsegna</th>
+                    <th scope="col">Volume</th>
+                    <th scope="col">Peso</th>
+                    <th scope="col">Costo</th>
+                    
+                </tr>
+            </thead>
+            <tbody>
+                <tr scope="row" *ngFor="let ordine of orders">
+                    <td>{{ ordine.id }}</td>
+                    <td>{{ ordine.indirizzoPartenza }}</td>
+                    <td>{{ ordine.indirizzoConsegna}}</td>
+                    <td>{{ ordine.volumeSpedizione }}</td>
+                    <td>{{ ordine.pesoSpedizione }}</td>
+                    <td>{{ ordine.costoFinale }}</td>
+                    <td><a href="#" [routerLink]="['/orders/', ordine.id, 'view']" class="btn btn-info m-1">View</a> <a href="#"
+                            [routerLink]="['/orders/', ordine.id, 'edit']" class="btn btn-primary m-1">Edit</a>
+                    </td>
+                </tr>
+                <tr scope="row" *ngIf="orders.length === 0">
+                    <td colspan="6" class="text-center">No record found</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

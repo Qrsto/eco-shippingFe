@@ -1,11 +1,10 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { MatButtonModule } from '@angular/material/button';
 import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
-
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { CustomerListComponent } from 'src/app/components/customerlist/customerlist';
@@ -20,8 +19,10 @@ import { BoardRiderComponent } from './components/board-rider/board-rider.compon
 import { GestionecontrolloDetailsComponent } from './components/gestionecontrollo-details/gestionecontrollo-details.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
+import { DataTablesModule } from 'angular-datatables';
 
 import { httpInterceptorProviders } from './helpers/http.interceptor';
+import { ListaOrdiniComponent } from './components/gestionecontrollo-details/listaordini.component';
 
 
 @NgModule({
@@ -39,6 +40,7 @@ import { httpInterceptorProviders } from './helpers/http.interceptor';
     GestionecontrolloDetailsComponent,
     LoginComponent,
     RegisterComponent,
+    ListaOrdiniComponent
     
   ],
   imports: [
@@ -47,7 +49,10 @@ import { httpInterceptorProviders } from './helpers/http.interceptor';
     HttpClientModule,
     FormsModule,
     MatButtonModule,
-    MatCardModule
+    MatCardModule,
+    ReactiveFormsModule,
+    DataTablesModule
+
   ],
   providers: [httpInterceptorProviders],
   bootstrap: [AppComponent]

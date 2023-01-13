@@ -4,12 +4,15 @@ import { Router } from '@angular/router';
 import { GestioneordineService } from 'src/app/services/gestioneordine.service';
 import { StorageService } from 'src/app/services/storage.service';
 
+
+
 @Component({
   selector: 'app-creazioneordine',
   templateUrl: './creazioneordine.component.html',
   styleUrls: ['./creazioneordine.component.css']
 })
 export class CreazioneordineComponent implements OnInit {
+  
   
   formOrder: any  = {
     indirizzoPartenza: null,
@@ -50,10 +53,8 @@ export class CreazioneordineComponent implements OnInit {
   }
 
   ngOnInit(): void { 
-    
-
   }
-  
+
    onSubmit(): void {
     const { 
       indirizzoPartenza,

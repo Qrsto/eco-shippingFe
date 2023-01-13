@@ -1,53 +1,88 @@
-
-
 <div class="col-md-12">
   <div class="card card-container">
     <img
     id="profile-img"
     src="https://i.imgur.com/4DIPv5k.png"
     class="profile-img-card"
-  />
-  <form class="row g-3" *ngIf="!isSuccessful" name="form" (ngSubmit)="f.form.valid" #f="ngForm" novalidate>
+   />
+   <form 
+     name="form" 
+     (ngSubmit)="f.form.valid" 
+     #f="ngForm" 
+     novalidate>
     <div class="col-md-12">
       <label for="titolareCarta" class="form-label">Titolare carta</label>
-      <input type="text" class="form-control" id="titolareCarta" #required [(ngModel)]="form.titolareCarta"
-        #titolareCarta="ngModel" placeholder="Mario Rossi" 
+      <input 
+        type="text" 
+        class="form-control" 
+        required 
+        [(ngModel)]="form.titolareCarta"
+        [ngModelOptions]="{standalone: true}"
+        name="titolareCarta"
+        #titolareCarta="ngModel" 
+        placeholder="Mario Rossi" 
       />
     </div>
     <div class="col-md-12">
       <label for="cardNumber" class="form-label">Numero carta</label>
-      <input type="text" class="form-control" id="cardNumber" #required [(ngModel)]="form.cardNumber"
-        #cardNumber="ngModel" placeholder="1234 5678 1234 5678" minlength="16" maxlength="16" 
+      <input 
+        type="number" 
+        class="form-control" 
+        required 
+        [(ngModel)]="form.cardNumber"
+        [ngModelOptions]="{standalone: true}"
+        #cardNumber="ngModel" 
+        placeholder="1234567812345678" 
+        minlength="16" maxlength="16" 
         [ngClass]="{ 'non valido': cardNumber.errors}" 
       />
-      </div>
+       <div *ngIf="cardNumber.errors" class="invalid-feedback">
+        Numero di carta non valido!
+       </div>
+    </div>
       <div class="col-md-6">
       <label for="dataScadenza" class="form-label">Data di scadenza</label>
-      <input type="month" class="form-control" id="dataScadenza" #required [(ngModel)]="form.dataScadenza"
-        #dataScadenza="ngModel" placeholder="01/2023" 
+      <input 
+        type="month" 
+        class="form-control" 
+        required 
+        [(ngModel)]="form.dataScadenza"
+        [ngModelOptions]="{standalone: true}"
+        #dataScadenza="ngModel" 
+        placeholder="01/2023" 
       />
     </div>
     <div class="col-md-6">
       <label for="codiceCvv" class="form-label">CVV</label>
-      <input type="number" class="form-control" id="codiceCvv" #required [(ngModel)]="form.codiceCvv" 
-       #codiceCvv="ngModel"
-       placeholder="123" minlength="3" maxlength="3"
-       [ngClass]="{ 'non valido': codiceCvv.errors}"
+      <input 
+        type="number" 
+        class="form-control" 
+        id="codiceCvv" 
+        required 
+        [(ngModel)]="form.codiceCvv"
+        [ngModelOptions]="{standalone: true}" 
+        #codiceCvv="ngModel"
+        placeholder="123" minlength="3" maxlength="3"
+        [ngClass]="{ 'non valido': codiceCvv.errors}"
       />
+      <div *ngIf="codiceCvv.errors" class="invalid-feedback">
+        CVV non valido!
+      </div>
     </div>
+    <br>
     <div class="col-md-12">
-      <button type="submit" class="btn btn-primary">Concludi e paga</button>
+      <button class="btn btn-primary">Concludi e paga</button>
     </div>
-  
-    <div class="alert alert-success" *ngIf="isSuccessful">
+    <div class="form-group">
+      <div *ngIf="f.submitted && isCreatePaymentFailed" class="alert alert-danger" role="alert">
+        Payment Failed: {{ errorMessage }}
+      </div>
+    </div>
+   </form>
+   <div class="alert alert-success" *ngIf="isSuccessful">
       Grazie. <br>
-      Un rider sarà subito da te!
-    </div>
-  
-  
-    <div class="alert alert-warning" *ngIf="onSubmit()">
-      Signup failed!<br />{{ errorMessage }}
-    </div> 
-  </form>
-
+      Un rider sarà subito da te
+   </div>
+    
+  </div>
 </div>

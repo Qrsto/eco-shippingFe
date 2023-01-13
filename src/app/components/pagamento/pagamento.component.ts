@@ -5,6 +5,9 @@ import { getNumberOfCurrencyDigits } from '@angular/common';
 import { EventManager } from '@angular/platform-browser';
 import { OrderService } from '../orderlist/orderlist.service';
 import { Router } from '@angular/router';
+import { ThisReceiver } from '@angular/compiler';
+import { detailsPayment } from './detailsPayment';
+import { DetailsPayment } from 'src/app/creazioneordine/details-payment';
 
 
 @Component({
@@ -14,33 +17,39 @@ import { Router } from '@angular/router';
 })
 export class PagamentoComponent implements OnInit {
 
-  //attendo un input da creaOrdinecomponent
-  @Input() ordine: any;
-
+  
 
   ngOnInit(): void {
 
   }
 
-  
-
   form : any = {
-    cardNumber: null,
+    cardNumber: 1234123412341234,
     dataScadenza: null,
     cvvNumber: null,
-    titolareCarta: null,
+    titolareCarta: "",
 
   };
   errorMessage = '';
   isSuccessful = false;
   isCreatePaymentFailed = false;
+  estremi: detailsPayment [] = [];
 
 
-  constructor(private readonly router:Router) {}
+  constructor() {}
 
-  
+   //metodo che salva (in maniera insicura ) gli estremi del oagament
+    //da completare 
+   saveDetailPayment(
+    cardNumber:number, 
+    dataScadenza: Date,
+    cvvNumber: number,
+    titolareCarta: string) {
+      let detailsPayment = new DetailsPayment()
+    this.estremi.push();
+   }
 
-  
+
 
   onSubmit() : boolean {
     const {
@@ -48,16 +57,18 @@ export class PagamentoComponent implements OnInit {
       dataScadenza,
       cvvNumber,
       titolareCarta,
-    } = this.form;
+    } = this.form 
 
 
     
-    if (cardNumber.length == 16 && cvvNumber.length == 3){
+   
+    if (this.form.cardNumber.length == 16 && this.form.cvvNumber.length == 3){
       return this.isSuccessful = true;
     }
     else {
       return this.isCreatePaymentFailed = true;
     }
+    };
 
   }
 
@@ -65,7 +76,7 @@ export class PagamentoComponent implements OnInit {
     
     
 
-  }
+  
 
 
 

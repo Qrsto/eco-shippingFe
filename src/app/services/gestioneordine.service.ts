@@ -5,6 +5,7 @@ import { Gestioneordine } from '../models/gestioneordine.model';
 import { Order } from '../components/orderlist/order';
 import { MetodoPagamento } from '../enums/metodo-pagamento';
 import { FasciaOraria } from '../enums/fascia-oraria';
+import { OrderService } from '../components/orderlist/orderlist.service';
 
 //header per inserimento post 
 const httpOptions = {
@@ -19,7 +20,9 @@ const baseUrl = 'http://localhost:8080/api/order'
 })
 export class GestioneordineService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient) {
+    
+   }
 
   //metodo che da informazioni su un ordine dato l'id 
   get(id: any): Observable<any> {
@@ -39,9 +42,7 @@ export class GestioneordineService {
     return this.http.delete(baseUrl);
   }
 
-
-  
-
+  order:Order;
   //metodio per la creazione di un nuovo ordine
   create(
     indirizzoPartenza: string,
@@ -52,11 +53,6 @@ export class GestioneordineService {
     metodoPagamento : MetodoPagamento,
     fasciaOraria : FasciaOraria,
     noteConsegna : string,
-    costoFinale: number,
-    longitudinePartenza: number,
-    latitudinePartenza: number,
-    longitudineDestinazione: number,
-    latitudineDestinazione: number,
   ): Observable<any> {
     return this.http.post(
       baseUrl + `/new`,{
@@ -68,11 +64,7 @@ export class GestioneordineService {
         metodoPagamento,
         fasciaOraria,
         noteConsegna,
-        costoFinale,
-        longitudinePartenza,
-        latitudinePartenza,
-        longitudineDestinazione,
-        latitudineDestinazione
+        
       }, httpOptions
     );
 

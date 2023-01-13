@@ -4,16 +4,13 @@ import { MetodoPagamento } from "../enums/metodo-pagamento";
 export interface Order {
 
     indirizzoPartenza: string;
-    indirizzoConsegna: string;
-    volumeSpedizione: Float32Array;
-    pesoSpedizione: Float32Array;
-    numTelefonoDestinatario: number;
+    indirizzoDestinazione: string;
+    volumeSpedizione: string;
+    pesoSpedizione: string;
+    numTelefonoDestinatario: string;
     metodoPagamento: MetodoPagamento;
     noteConsegna: string;
     fasciaOraria: FasciaOraria;
-    latitudinePartenza: number;
-    longitudinePartenza: number;
-    latitudineDestinazione: number;
-    longitudineDestinazione: number;
+    
     
   }

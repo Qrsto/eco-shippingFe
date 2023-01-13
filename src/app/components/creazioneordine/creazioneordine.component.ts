@@ -1,8 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { Router } from '@angular/router';
+import { nextTick } from 'process';
 import { GestioneordineService } from 'src/app/services/gestioneordine.service';
 import { StorageService } from 'src/app/services/storage.service';
+import { MetodoPagamento } from '../enums/metodo-pagamento';
+import { OrderService } from '../orderlist/orderlist.service';
+import { Order } from './order';
 
 
 
@@ -12,6 +16,7 @@ import { StorageService } from 'src/app/services/storage.service';
   styleUrls: ['./creazioneordine.component.css']
 })
 export class CreazioneordineComponent implements OnInit {
+  
   
   form: any  = {
     indirizzoPartenza: null,
@@ -30,15 +35,22 @@ export class CreazioneordineComponent implements OnInit {
   errorMessage = '';
   isSuccessful = false;
   isCreateOrderFailed = false;
+  isContantiMethod = false;
   
-  constructor(private gestioneOrdineService: GestioneordineService, private http: HttpClient, private readonly router: Router) {}
 
-  goToPayment() {
-    this.router.navigate(['payment']);
+  
+
+  
+  constructor(private gestioneOrdineService: GestioneordineService, private http: HttpClient,private router:Router ) {
+  }
+  ordine: Order;
+
+  ngOnInit(): void { 
   }
 
 
-  ngOnInit(): void { 
+  onPaymentPage() {
+    this.router.navigateByUrl("/payment");
   }
 
    onSubmit(): void {
@@ -50,32 +62,27 @@ export class CreazioneordineComponent implements OnInit {
       numTelefonoDestinatario,
       metodoPagamento,
       fasciaOraria,
-      noteConsegna,
-      costoFinale,
-      longitudinePartenza,
-      latitudinePartenza,
-      longitudineDestinazione,
-      latitudineDestinazione,
+      noteConsegna
       } = this.form;
-  
+
     this.gestioneOrdineService.create(
-      indirizzoPartenza,
-      indirizzoDestinazione,
-      volumeSpedizione,
-      pesoSpedizione,
-      numTelefonoDestinatario,
-      metodoPagamento,
-      fasciaOraria,
-      noteConsegna,
-      costoFinale,
-      longitudinePartenza,
-      latitudinePartenza,
-      longitudineDestinazione,
-      latitudineDestinazione).subscribe({
+      this.form.indirizzoPartenza,
+      this.form.indirizzoDestinazione,
+      this.form.volumeSpedizione,
+      this.form.pesoSpedizione,
+      this.form.numTelefonoDestinatario,
+      this.form.metodoPagamento,
+      this.form.fasciaOraria,
+      this.form.noteConsegna,
+      ).subscribe({
         next : data => {
+          if ("CONTANTI" == this.form.metodoPagamento) {
+            this.isContantiMethod = true;
+          }
           console.log(data);
           this.isSuccessful = true;
           this.isCreateOrderFailed = false;
+          console.log(this.isContantiMethod);
           
         },
         error: err => {

@@ -12,6 +12,8 @@ import { RegisterComponent } from './components/register/register.component';
 import { CreazioneordineComponent } from './components/creazioneordine/creazioneordine.component';
 import { GestionecontrolloDetailsComponent } from './components/gestionecontrollo-details/gestionecontrollo-details.component';
 import { PagamentoComponent } from './components/pagamento/pagamento.component';
+import { AddOrderComponent } from './components/gestionecontrollo-details/aggiungiordine.component';
+import { ListaOrdiniComponent } from './components/gestionecontrollo-details/listaordini.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -22,7 +24,7 @@ const routes: Routes = [
   { path: 'rider', component: BoardRiderComponent },
   { path: 'admin', component: BoardAdminComponent },
   { path: 'createorder', component: CreazioneordineComponent},
-  { path: 'getOrders', component: GestionecontrolloDetailsComponent},
+  { path: 'getOrders', component: ListaOrdiniComponent},
   { path: 'payment', component: PagamentoComponent},
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];

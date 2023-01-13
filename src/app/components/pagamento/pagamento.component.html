@@ -1,45 +1,51 @@
-<form class="row g-3">
-    <div class="col-md-6">
-      <label for="inputEmail4" class="form-label">Titolare conto</label>
-      <input type="email" class="form-control" id="inputEmail4" #required
-       [(ngModel)]="form.cardNumber" #cardNumber="ngModel"/>
+<div class="col-md-12">
+  <div class="card card-container">
+    <img
+    id="profile-img"
+    src="https://i.imgur.com/4DIPv5k.png"
+    class="profile-img-card"
+  />
+  <form class="row g-3" *ngIf="!isSuccessful" name="form" (ngSubmit)="f.form.valid" #f="ngForm" novalidate>
+    <div class="col-md-12">
+      <label for="titolareCarta" class="form-label">Titolare carta</label>
+      <input type="text" class="form-control" id="titolareCarta" #required [(ngModel)]="form.titolareCarta"
+        #titolareCarta="ngModel" placeholder="Mario Rossi" 
+      />
     </div>
-    <div class="col-md-6">
-      <label for="inputPassword4" class="form-label">Password</label>
-      <input type="password" class="form-control" id="inputPassword4">
-    </div>
-    <div class="col-12">
-      <label for="inputAddress" class="form-label">Address</label>
-      <input type="text" class="form-control" id="inputAddress" placeholder="1234 Main St">
-    </div>
-    <div class="col-12">
-      <label for="inputAddress2" class="form-label">Address 2</label>
-      <input type="text" class="form-control" id="inputAddress2" placeholder="Apartment, studio, or floor">
-    </div>
-    <div class="col-md-6">
-      <label for="inputCity" class="form-label">City</label>
-      <input type="text" class="form-control" id="inputCity">
-    </div>
-    <div class="col-md-4">
-      <label for="inputState" class="form-label">State</label>
-      <select id="inputState" class="form-select">
-        <option selected>Choose...</option>
-        <option>...</option>
-      </select>
-    </div>
-    <div class="col-md-2">
-      <label for="inputZip" class="form-label">Zip</label>
-      <input type="text" class="form-control" id="inputZip">
-    </div>
-    <div class="col-12">
-      <div class="form-check">
-        <input class="form-check-input" type="checkbox" id="gridCheck">
-        <label class="form-check-label" for="gridCheck">
-          Check me out
-        </label>
+    <div class="col-md-12">
+      <label for="cardNumber" class="form-label">Numero carta</label>
+      <input type="text" class="form-control" id="cardNumber" #required [(ngModel)]="form.cardNumber"
+        #cardNumber="ngModel" placeholder="1234 5678 1234 5678" minlength="16" maxlength="16" 
+        [ngClass]="{ 'non valido': cardNumber.errors}" 
+      />
       </div>
+      <div class="col-md-6">
+      <label for="dataScadenza" class="form-label">Data di scadenza</label>
+      <input type="month" class="form-control" id="dataScadenza" #required [(ngModel)]="form.dataScadenza"
+        #dataScadenza="ngModel" placeholder="01/2023" 
+      />
     </div>
-    <div class="col-12">
-      <button type="submit" class="btn btn-primary">Sign in</button>
+    <div class="col-md-6">
+      <label for="codiceCvv" class="form-label">CVV</label>
+      <input type="number" class="form-control" id="codiceCvv" #required [(ngModel)]="form.codiceCvv" 
+       #codiceCvv="ngModel"
+       placeholder="123" minlength="3" maxlength="3"
+       [ngClass]="{ 'non valido': codiceCvv.errors}"
+      />
     </div>
+    <div class="col-md-12">
+      <button type="submit" class="btn btn-primary">Concludi e paga</button>
+    </div>
+  
+    <div class="alert alert-success" *ngIf="isSuccessful">
+      Grazie. <br>
+      Un rider sarà subito da te!
+    </div>
+  
+  
+    <div class="alert alert-warning" *ngIf="onSubmit()">
+      Signup failed!<br />{{ errorMessage }}
+    </div> 
   </form>
+
+</div>

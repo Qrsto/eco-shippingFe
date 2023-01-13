@@ -1,1 +1,47 @@
-<p>gestionecontrollo-details works!</p>
+<div class="list row">
+    <div class="col-md-8">
+      <div class="input-group mb-3">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Search by id"
+          [(ngModel)]="id"
+        />
+        <div class="input-group-append">
+          <button
+            class="btn btn-outline-secondary"
+            type="button"
+            (click)="searchId()"
+          >
+            Search
+          </button>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-6">
+      <h4>Orders List</h4>
+      <ul class="list-group">
+        <li
+          class="list-group-item"
+          *ngFor="let order of orders; let i = index"
+          [class.active]="i == currentIndex"
+          (click)="setActiveOrders(order, i)"
+        >
+          {{ order.id }}
+        </li>
+      </ul>
+  
+      <!--
+      <button class="m-3 btn btn-sm btn-danger" (click)="removeAllOrders()">
+        Remove All
+      </button>
+    </div>
+    <div class="col-md-6">
+      <app-gestionecontrollo-details
+        [viewMode]="true"
+        [currentOrder]="currentOrder"
+      ></app-gestionecontrollo-details>
+    </div>
+
+    -->
+  </div>

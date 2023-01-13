@@ -10,6 +10,7 @@ import { BoardAdminComponent } from './components/board-admin/board-admin.compon
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { CreazioneordineComponent } from './components/creazioneordine/creazioneordine.component';
+import { GestionecontrolloDetailsComponent } from './components/gestionecontrollo-details/gestionecontrollo-details.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -20,6 +21,7 @@ const routes: Routes = [
   { path: 'rider', component: BoardRiderComponent },
   { path: 'admin', component: BoardAdminComponent },
   { path: 'createorder', component: CreazioneordineComponent},
+  { path: 'getOrders', component: GestionecontrolloDetailsComponent},
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 

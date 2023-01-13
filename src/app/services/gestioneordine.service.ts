@@ -23,12 +23,20 @@ export class GestioneordineService {
 
   //metodo che da informazioni su un ordine dato l'id 
   get(id: any): Observable<any> {
-    return this.http.get(`{baseUrl}/${id}`)
+    return this.http.get(`{baseUrl}/${id}`);
   }
 
   //metodo che fornisce una lista di ordini passati 
   getAll(): Observable<any> {
     return this.http.get<any>(baseUrl + `/orders`);  
+  }
+
+  update(id: any, data: any): Observable<any> {
+    return this.http.put(`${baseUrl}/${id}`, data);
+  }
+
+  deleteAll(): Observable<any> {
+    return this.http.delete(baseUrl);
   }
 
   //metodio per la creazione di un nuovo ordine

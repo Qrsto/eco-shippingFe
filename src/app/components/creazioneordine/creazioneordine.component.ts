@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { HttpClient } from '@angular/common/http';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { GestioneordineService } from 'src/app/services/gestioneordine.service';
 import { StorageService } from 'src/app/services/storage.service';
 import { HttpClient } from '@angular/common/http';
@@ -32,11 +33,32 @@ export class CreazioneordineComponent implements OnInit {
   isSuccessful = false;
   isCreateOrderFailed = false;
   
+<<<<<<< HEAD
   constructor(private gestioneOrdineService: GestioneordineService,private http: HttpClient) {}
   address= "via roma 10, gioia del colle";
   
 
   ngOnInit(): void { 
+=======
+  constructor(private gestioneOrdineService: GestioneordineService, private http: HttpClient) {}
+
+  
+  
+
+
+  getCoords() {
+    this.http.get(`hhttps://maps.googleapis.com/maps/api/geocode/json?address=${this.indirizzoPartenza}&key=AIzaSyBxAaAAMuDA0A9mJBvRVaz0GbPUHwTj8DA`)
+      .subscribe((data: any) => {
+        this.latitudinePartenza = data.results[0].geometry.location.lat;
+        this.longitudinePartenza = data.results[0].geometry.location.lng;
+        console.log(this.latitudinePartenza);
+      });
+  }
+
+  ngOnInit(): void { 
+    
+
+>>>>>>> b89bcb4bbf66faf6b3dc4db69dd3b9f04889ca4e
   }
 
   getCoordinates(address: string) {
@@ -50,7 +72,7 @@ export class CreazioneordineComponent implements OnInit {
 
 
   
-  onSubmit(): void {
+   onSubmit(): void {
     const { 
       indirizzoPartenza,
       indirizzoDestinazione,

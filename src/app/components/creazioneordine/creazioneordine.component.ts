@@ -13,14 +13,12 @@ import { StorageService } from 'src/app/services/storage.service';
 })
 export class CreazioneordineComponent implements OnInit {
   
-  
-  formOrder: any  = {
+  form: any  = {
     indirizzoPartenza: null,
     indirizzoDestinazione: null,
     volumeSpedizione: null,
     pesoSpedizione: null,
     numTelefonoDestinatario: null,
-    metodoPagamento: null,
     fasciaOraria: null,
     noteConsegna: null,
     costoFinale: null,
@@ -39,18 +37,6 @@ export class CreazioneordineComponent implements OnInit {
     this.router.navigate(['payment']);
   }
 
-  
-  
-
-
-  getCoords() {
-    this.http.get(`hhttps://maps.googleapis.com/maps/api/geocode/json?address=${this.formOrder.indirizzoPartenza}&key=AIzaSyBxAaAAMuDA0A9mJBvRVaz0GbPUHwTj8DA`)
-      .subscribe((data: any) => {
-        this.formOrder.latitudinePartenza = data.results[0].geometry.location.lat;
-        this.formOrder.longitudinePartenza = data.results[0].geometry.location.lng;
-        console.log(this.formOrder.latitudinePartenza);
-      });
-  }
 
   ngOnInit(): void { 
   }
@@ -70,7 +56,7 @@ export class CreazioneordineComponent implements OnInit {
       latitudinePartenza,
       longitudineDestinazione,
       latitudineDestinazione,
-      } = this.formOrder;
+      } = this.form;
   
     this.gestioneOrdineService.create(
       indirizzoPartenza,

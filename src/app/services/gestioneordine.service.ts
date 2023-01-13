@@ -23,7 +23,7 @@ export class GestioneordineService {
 
   //metodo che da informazioni su un ordine dato l'id 
   get(id: any): Observable<any> {
-    return this.http.get(`{baseUrl}/${id}`)
+    return this.http.get(`{baseUrl}/${id}`);
   }
 
   //metodo che fornisce una lista di ordini passati 

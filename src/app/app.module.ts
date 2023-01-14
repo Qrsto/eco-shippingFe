@@ -19,7 +19,7 @@ import { BoardRiderComponent } from './components/board-rider/board-rider.compon
 import { GestionecontrolloDetailsComponent } from './components/gestionecontrollo-details/gestionecontrollo-details.component';
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
-import { DataTablesModule } from 'angular-datatables';
+
 
 import { httpInterceptorProviders } from './helpers/http.interceptor';
 import { ListaOrdiniComponent } from './components/gestionecontrollo-details/listaordini.component';
@@ -40,7 +40,7 @@ import { ListaOrdiniComponent } from './components/gestionecontrollo-details/lis
     GestionecontrolloDetailsComponent,
     LoginComponent,
     RegisterComponent,
-    ListaOrdiniComponent
+    ListaOrdiniComponent,
     
   ],
   imports: [
@@ -51,7 +51,7 @@ import { ListaOrdiniComponent } from './components/gestionecontrollo-details/lis
     MatButtonModule,
     MatCardModule,
     ReactiveFormsModule,
-    DataTablesModule
+
 
   ],
   providers: [httpInterceptorProviders],

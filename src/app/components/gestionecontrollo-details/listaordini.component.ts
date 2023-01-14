@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';  
 import { Observable,Subject } from "rxjs";  
-import { DataTablesModule } from 'angular-datatables';
 import { StorageService } from 'src/app/services/storage.service';
 import {FormControl,FormGroup,Validators} from '@angular/forms';  
-import { OrdineService } from './ordine.service';
+import { OrdineService } from '../../services/ordine.service';
 import { Ordine } from './ordine';
   
 @Component({  

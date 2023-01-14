@@ -6,8 +6,6 @@ import { EventManager } from '@angular/platform-browser';
 import { OrderService } from '../orderlist/orderlist.service';
 import { Router } from '@angular/router';
 import { ThisReceiver } from '@angular/compiler';
-import { detailsPayment } from './detailsPayment';
-import { DetailsPayment } from 'src/app/creazioneordine/details-payment';
 
 
 @Component({
@@ -33,21 +31,24 @@ export class PagamentoComponent implements OnInit {
   errorMessage = '';
   isSuccessful = false;
   isCreatePaymentFailed = false;
-  estremi: detailsPayment [] = [];
+  
+
 
 
   constructor() {}
 
    //metodo che salva (in maniera insicura ) gli estremi del oagament
     //da completare 
-   saveDetailPayment(
-    cardNumber:number, 
+   /*saveDetailPayment(
+    cardNumber:string, 
     dataScadenza: Date,
     cvvNumber: number,
-    titolareCarta: string) {
-      let detailsPayment = new DetailsPayment()
-    this.estremi.push();
-   }
+    titolareCarta: string
+    ) {
+      let detailPayment:DetailsPayment = new DetailsPayment(cardNumber,titolareCarta,dataScadenza,cvvNumber);
+      this.estremi.push(detailPayment);    
+    }
+    */
 
 
 
@@ -57,12 +58,12 @@ export class PagamentoComponent implements OnInit {
       dataScadenza,
       cvvNumber,
       titolareCarta,
-    } = this.form 
+    } = this.form
 
 
     
    
-    if (this.form.cardNumber.length == 16 && this.form.cvvNumber.length == 3){
+    if (cardNumber.length == 16 && cvvNumber.length == 3){
       return this.isSuccessful = true;
     }
     else {

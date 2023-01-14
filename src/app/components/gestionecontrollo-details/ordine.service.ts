@@ -27,5 +27,9 @@ export class OrdineService {
   getOrdersList(): Observable<any> {  
     return this.http.get<any>(this.baseUrl + 'orders');  
   }  
+
+  getOrder(id: number): Observable<Object> {  
+    return this.http.get(`${this.baseUrl}/student/${id}`);  
+  }  
     
 }  

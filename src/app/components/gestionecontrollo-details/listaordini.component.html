@@ -1,12 +1,6 @@
 
-
-
-
-
-<h1><strong>{{ currentUser.username }}</strong> </h1>
-
 <div class="container">
-    <h5 class="text-center mt-3">Ordini</h5>
+    <h5 class="text-center mt-3">Ordini di {{ currentUser.username }}</h5>
     <div class="d-flex my-2">
         <a href="#" routerLink="/createorder" class="btn btn-outline-success ms-auto">Create New Order</a>
     </div>
@@ -32,8 +26,7 @@
                     <td>{{ ordine.volumeSpedizione }}</td>
                     <td>{{ ordine.pesoSpedizione }}</td>
                     <td>{{ ordine.costoFinale }}</td>
-                    <td><a href="#" [routerLink]="['/orders/', ordine.idOrdine]" class="btn btn-info m-1">View</a> <a href="#"
-                            [routerLink]="['/orders/', ordine.idOrdine, 'edit']" class="btn btn-primary m-1">Edit</a>
+                    <td><a href="#" [routerLink]="['/orders/', ordine.idOrdine]" class="btn btn-info m-1">View</a> 
                     </td>
                 </tr>
                 <tr scope="row" *ngIf="orders.length === 0">

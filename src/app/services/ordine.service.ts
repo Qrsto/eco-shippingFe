@@ -28,8 +28,8 @@ export class OrdineService {
     return this.http.get<any>(this.baseUrl + 'orders');  
   }  
 
-  getOrder(id: number): Observable<Object> {  
-    return this.http.get(`${this.baseUrl}/student/${id}`);  
+  getOrder(id_utente: number): Observable<any> {  
+    return this.http.get<any>(`${this.baseUrl}${id_utente}`);  
   }  
     
 }  

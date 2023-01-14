@@ -17,9 +17,9 @@ export class ListaOrdiniComponent implements OnInit {
   
  constructor(private ordineservice:OrdineService) { }  
    
-  ngOnInit(): void {  
-    this.getOrders();    
+  ngOnInit(): void {    
     this.currentUser = this.ordineservice.getUser();
+    this.getOrderbyId_utente(this.currentUser.id);  
     };     
   
     private getOrders() {
@@ -32,6 +32,21 @@ export class ListaOrdiniComponent implements OnInit {
         }
         );
     }
+
+    private getOrderbyId_utente(id_utente : number) {
+
+      this.ordineservice.getOrder(id_utente)
+      .subscribe(data => {
+          this.orders = data;
+      }
+      , error => {
+        console.log(error.error.message);
+      }
+      );
+
+    }
+
+
 
     
   

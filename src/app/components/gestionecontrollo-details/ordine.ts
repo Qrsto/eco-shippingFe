@@ -18,5 +18,6 @@ export interface Ordine {
     latitudinePartenza: number;
     longitudineDestinazione: number;
     latitudineDestinazione: number;
+    id_utente: number;
     
 }  

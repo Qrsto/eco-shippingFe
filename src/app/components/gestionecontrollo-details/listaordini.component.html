@@ -15,25 +15,25 @@
             <thead>
                 <tr>
                     <th scope="col">#</th>
-                    <th scope="col">Id</th>
                     <th scope="col">indirizzoPartenza</th>
                     <th scope="col">indirizzoConsegna</th>
                     <th scope="col">Volume</th>
                     <th scope="col">Peso</th>
                     <th scope="col">Costo</th>
+                    <th scope="col">Azioni</th>
                     
                 </tr>
             </thead>
             <tbody>
                 <tr scope="row" *ngFor="let ordine of orders">
-                    <td>{{ ordine.id }}</td>
+                    <td>{{ ordine.idOrdine}}</td>
                     <td>{{ ordine.indirizzoPartenza }}</td>
                     <td>{{ ordine.indirizzoConsegna}}</td>
                     <td>{{ ordine.volumeSpedizione }}</td>
                     <td>{{ ordine.pesoSpedizione }}</td>
                     <td>{{ ordine.costoFinale }}</td>
-                    <td><a href="#" [routerLink]="['/orders/', ordine.id, 'view']" class="btn btn-info m-1">View</a> <a href="#"
-                            [routerLink]="['/orders/', ordine.id, 'edit']" class="btn btn-primary m-1">Edit</a>
+                    <td><a href="#" [routerLink]="['/orders/', ordine.idOrdine]" class="btn btn-info m-1">View</a> <a href="#"
+                            [routerLink]="['/orders/', ordine.idOrdine, 'edit']" class="btn btn-primary m-1">Edit</a>
                     </td>
                 </tr>
                 <tr scope="row" *ngIf="orders.length === 0">

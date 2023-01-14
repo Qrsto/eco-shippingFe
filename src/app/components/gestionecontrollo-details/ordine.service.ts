@@ -25,7 +25,7 @@ export class OrdineService {
   }
 
   getOrdersList(): Observable<any> {  
-    return this.http.get(`${this.baseUrl}`+'orders');  
+    return this.http.get<any>(this.baseUrl + 'orders');  
   }  
     
 }  

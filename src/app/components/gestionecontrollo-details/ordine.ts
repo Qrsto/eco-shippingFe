@@ -3,16 +3,16 @@ import { MetodoPagamento } from "../enums/metodo-pagamento";
 
 export interface Ordine {  
   
-    id: number;
+    idOrdine: number;
     idSpedizione: number;
     indirizzoPartenza:String;
     indirizzoConsegna:String;
     volumeSpedizione:number;
     pesoSpedizione: number;
-    numTelefonoDestinatario: number;
+    numTelefonoDestinatario: String;
     metodoPagamento: MetodoPagamento;
     fasciaOraria: FasciaOraria;
-    noteConsegna: string;
+    noteConsegna: String;
     costoFinale: number;
     longitudinePartenza: number;
     latitudinePartenza: number;

@@ -19,14 +19,14 @@ export class ListaOrdiniComponent implements OnInit {
  constructor(private ordineservice:OrdineService) { }  
    
   ngOnInit(): void {  
-    this.getOrders();
+    this.getOrders();    
     this.currentUser = this.ordineservice.getUser();
     };     
   
     private getOrders() {
         this.ordineservice.getOrdersList()
         .subscribe(data => {
-            this.orders = data['content'];
+            this.orders = data;
         }
         , error => {
             console.log(error.error.message);

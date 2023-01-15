@@ -26,7 +26,8 @@
                     <td>{{ ordine.volumeSpedizione }}</td>
                     <td>{{ ordine.pesoSpedizione }}</td>
                     <td>{{ ordine.costoFinale }}</td>
-                    <td><a href="#" [routerLink]="['/orders/', ordine.idOrdine]" class="btn btn-info m-1">View</a> 
+                    <td><button href="#" [routerLink]="['/shipment']" class="btn btn-info m-1" type="button" (click)="setOrderId(ordine.idOrdine)">View</button>
+                    <!--<td><a href="#" [routerLink]="['/shipment']" class="btn btn-info m-1">View</a> --> 
                     </td>
                 </tr>
                 <tr scope="row" *ngIf="orders.length === 0">

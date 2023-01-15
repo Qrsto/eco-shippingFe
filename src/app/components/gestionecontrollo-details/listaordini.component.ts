@@ -1,7 +1,4 @@
-import { Component, OnInit } from '@angular/core';  
-import { Observable,Subject } from "rxjs";  
-import { StorageService } from 'src/app/services/storage.service';
-import {FormControl,FormGroup,Validators} from '@angular/forms';  
+import { Component, Input, OnInit } from '@angular/core';  
 import { OrdineService } from '../../services/ordine.service';
 import { Ordine } from './ordine';
   
@@ -12,6 +9,7 @@ import { Ordine } from './ordine';
 })  
 export class ListaOrdiniComponent implements OnInit { 
 
+  @Input() id: number;
    currentUser: any;
    orders: Ordine[] = [];
   
@@ -44,12 +42,13 @@ export class ListaOrdiniComponent implements OnInit {
         console.log(error.error.message);
       }
       );
-
-      
-
     }
 
+    public setOrderId(id : number) {
 
+      sessionStorage.setItem("id", id.toString());
+
+    }
 
     
   

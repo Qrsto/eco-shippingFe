@@ -1,0 +1,26 @@
+<div class="container">
+    <h5 class="text-center mt-3"> Spedizione #{{ shipment.id }}</h5>
+    <div class="table-responsive">
+        <table class="table table-bordered p-0 m-0">
+            <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Data Evasione</th>
+                    <th scope="col">Id Rider</th>
+                    <th scope="col">Stato Attuale</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>{{ shipment.id}}</td>
+                    <td>{{ shipment.dataEvasione }}</td>
+                    <td>{{ shipment.idRider}}</td>
+                    <td>{{ shipment.tipoStato }}</td>
+                </tr>
+                <tr scope="row" *ngIf="shipment.length === 0">
+                    <td colspan="6" class="text-center">No record found</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

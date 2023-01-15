@@ -13,6 +13,7 @@ import { CreazioneordineComponent } from './components/creazioneordine/creazione
 import { GestionecontrolloDetailsComponent } from './components/gestionecontrollo-details/gestionecontrollo-details.component';
 import { PagamentoComponent } from './components/pagamento/pagamento.component';
 import { ListaOrdiniComponent } from './components/gestionecontrollo-details/listaordini.component';
+import { DetailOrderComponent } from './components/gestionecontrollo-details/detailorder.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -25,6 +26,7 @@ const routes: Routes = [
   { path: 'createorder', component: CreazioneordineComponent},
   { path: 'getOrders', component: ListaOrdiniComponent},
   { path: 'payment', component: PagamentoComponent},
+  { path: 'shipment', component: DetailOrderComponent},
   { path: '', redirectTo: 'home', pathMatch: 'full' }
 ];
 

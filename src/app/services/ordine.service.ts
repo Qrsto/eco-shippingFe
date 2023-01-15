@@ -29,7 +29,7 @@ export class OrdineService {
   }  
 
   getOrder(id_utente: number): Observable<any> {  
-    return this.http.get<any>(`${this.baseUrl}${id_utente}`);  
+    return this.http.get<any>(`${this.baseUrl + 'userorders/'}${id_utente}`);  
   }  
     
 }  

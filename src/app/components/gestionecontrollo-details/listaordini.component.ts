@@ -19,7 +19,8 @@ export class ListaOrdiniComponent implements OnInit {
    
   ngOnInit(): void {    
     this.currentUser = this.ordineservice.getUser();
-    this.getOrderbyId_utente(this.currentUser.id);  
+    this.getOrderbyId_utente(this.currentUser.id); 
+    
     };     
   
     private getOrders() {
@@ -43,6 +44,8 @@ export class ListaOrdiniComponent implements OnInit {
         console.log(error.error.message);
       }
       );
+
+      
 
     }
 

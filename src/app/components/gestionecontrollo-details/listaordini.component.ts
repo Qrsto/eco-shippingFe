@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';  
-import { OrdineService } from '../../services/ordine.service';
 import { Ordine } from './ordine';
+import { GestioneordineService } from 'src/app/services/gestioneordine.service';
   
 @Component({  
   selector: 'app-listaordini',  
@@ -13,16 +13,16 @@ export class ListaOrdiniComponent implements OnInit {
    currentUser: any;
    orders: Ordine[] = [];
   
- constructor(private ordineservice:OrdineService) { }  
+ constructor(private gestioneOrdineServices:GestioneordineService) { }  
    
   ngOnInit(): void {    
-    this.currentUser = this.ordineservice.getUser();
+    this.currentUser = this.gestioneOrdineServices.getUser();
     this.getOrderbyId_utente(this.currentUser.id); 
     
     };     
   
     private getOrders() {
-        this.ordineservice.getOrdersList()
+        this.gestioneOrdineServices.getOrdersList()
         .subscribe(data => {
             this.orders = data;
         }
@@ -34,7 +34,7 @@ export class ListaOrdiniComponent implements OnInit {
 
     private getOrderbyId_utente(id_utente : number) {
 
-      this.ordineservice.getOrder(id_utente)
+      this.gestioneOrdineServices.getOrder(id_utente)
       .subscribe(data => {
           this.orders = data;
       }

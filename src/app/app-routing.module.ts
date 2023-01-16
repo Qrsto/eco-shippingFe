@@ -10,7 +10,6 @@ import { BoardAdminComponent } from './components/board-admin/board-admin.compon
 import { LoginComponent } from './components/login/login.component';
 import { RegisterComponent } from './components/register/register.component';
 import { CreazioneordineComponent } from './components/creazioneordine/creazioneordine.component';
-import { GestionecontrolloDetailsComponent } from './components/gestionecontrollo-details/gestionecontrollo-details.component';
 import { PagamentoComponent } from './components/pagamento/pagamento.component';
 import { ListaOrdiniComponent } from './components/gestionecontrollo-details/listaordini.component';
 import { DetailOrderComponent } from './components/gestionecontrollo-details/detailorder.component';

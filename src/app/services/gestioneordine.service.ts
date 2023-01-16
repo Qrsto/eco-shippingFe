@@ -14,6 +14,7 @@ const httpOptions = {
 
 //api "radice"
 const baseUrl = 'http://localhost:8080/api/order'
+const USER_KEY = 'auth-user';
 
 @Injectable({
   providedIn: 'root'
@@ -29,15 +30,19 @@ export class GestioneordineService {
     return this.http.get(`{baseUrl}/${id}`);
   }
 
+
+
   //metodo che fornisce una lista di ordini passati 
   getAll(): Observable<any> {
     return this.http.get<any>(baseUrl + `/orders`);  
   }
 
+  //update dell'ordine
   update(id: any, data: any): Observable<any> {
     return this.http.put(`${baseUrl}/${id}`, data);
   }
 
+  //WARNING 
   deleteAll(): Observable<any> {
     return this.http.delete(baseUrl);
   }
@@ -69,6 +74,29 @@ export class GestioneordineService {
     );
 
   }
+
+  //metodo per avere id dell'user
+  public getUser(): any {
+    const user = window.sessionStorage.getItem(USER_KEY);
+    if (user) {
+      return JSON.parse(user);
+    }
+
+    return {};
+  }
+
+  //metodo per lista ordini 
+  getOrdersList(): Observable<any> {  
+    return this.http.get<any>(baseUrl + 'orders');  
+  }  
+
+  //metodo per l'ordine dato un idutente
+  getOrder(id_utente: number): Observable<any> {  
+    return this.http.get<any>(`${baseUrl + 'userorders/'}${id_utente}`);  
+  }
+
+
+
 
   }
   

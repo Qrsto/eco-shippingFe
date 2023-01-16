@@ -2,7 +2,7 @@
 <div class="container">
     <h5 class="text-center mt-3">Ordini di {{ currentUser.username }}</h5>
     <div class="d-flex my-2">
-        <a href="#" routerLink="/createorder" class="btn btn-outline-success ms-auto">Crea un nuovo ordine ora!</a>
+        <a href="#" routerLink="createorder" class="btn btn-outline-success ms-auto">Crea un nuovo ordine ora!</a>
     </div>
     <div class="table-responsive">
         <table class="table table-bordered p-0 m-0">
@@ -26,7 +26,7 @@
                     <td>{{ ordine.volumeSpedizione }}</td>
                     <td>{{ ordine.pesoSpedizione }}</td>
                     <td>{{ ordine.costoFinale }}</td>
-                    <td><button href="#" routerLink="['/shipment']" class="btn btn-info m-1" type="button" (click)="setOrderId(ordine.idOrdine)">View</button>
+                    <td><button href="#" routerLink="/shipment" class="btn btn-info m-1" type="button" (click)="setOrderId(ordine.idOrdine)">View</button>
                     <!--<td><a href="#" [routerLink]="['/shipment']" class="btn btn-info m-1">View</a> --> 
                     </td>
                 </tr>

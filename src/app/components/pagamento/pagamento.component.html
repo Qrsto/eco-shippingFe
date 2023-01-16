@@ -17,7 +17,6 @@
         class="form-control" 
         required 
         [(ngModel)]="form.titolareCarta"
-        [ngModelOptions]="{standalone: true}"
         name="titolareCarta"
         #titolareCarta="ngModel" 
         placeholder="Mario Rossi" 
@@ -26,11 +25,11 @@
     <div class="col-md-12">
       <label for="cardNumber" class="form-label">Numero carta</label>
       <input 
-        type="number" 
+        type="text" 
         class="form-control" 
         required 
         [(ngModel)]="form.cardNumber"
-        [ngModelOptions]="{standalone: true}"
+        name="numeroCarta"
         #cardNumber="ngModel" 
         placeholder="1234567812345678" 
         minlength="16" maxlength="16" 
@@ -47,7 +46,7 @@
         class="form-control" 
         required 
         [(ngModel)]="form.dataScadenza"
-        [ngModelOptions]="{standalone: true}"
+        name ="dataScadenza"
         #dataScadenza="ngModel" 
         placeholder="01/2023" 
       />
@@ -60,7 +59,7 @@
         id="codiceCvv" 
         required 
         [(ngModel)]="form.codiceCvv"
-        [ngModelOptions]="{standalone: true}" 
+        name ="codiceCvv"
         #codiceCvv="ngModel"
         placeholder="123" minlength="3" maxlength="3"
         [ngClass]="{ 'non valido': codiceCvv.errors}"
@@ -71,7 +70,7 @@
     </div>
     <br>
     <div class="col-md-12">
-      <button class="btn btn-primary">Concludi e paga</button>
+      <button class="btn btn-primary" onclick="">Concludi e paga</button>
     </div>
     <div class="form-group">
       <div *ngIf="f.submitted && isCreatePaymentFailed" class="alert alert-danger" role="alert">

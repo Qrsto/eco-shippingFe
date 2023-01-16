@@ -7,6 +7,7 @@ import { StorageService } from 'src/app/services/storage.service';
 import { MetodoPagamento } from '../enums/metodo-pagamento';
 import { OrderService } from '../orderlist/orderlist.service';
 import { Order } from './order';
+import { ListaOrdiniComponent } from '../gestionecontrollo-details/listaordini.component';
 
 
 
@@ -16,9 +17,10 @@ import { Order } from './order';
   styleUrls: ['./creazioneordine.component.css']
 })
 export class CreazioneordineComponent implements OnInit {
-  
-  
+
+
   form: any  = {
+  
     indirizzoPartenza: null,
     indirizzoDestinazione: null,
     volumeSpedizione: null,

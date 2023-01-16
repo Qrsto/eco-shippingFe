@@ -34,20 +34,26 @@ export class CreazioneordineComponent implements OnInit {
     longitudineDestinazione: null,
     latitudineDestinazione: null
   };
+
+
+  //dichiarazione variabili
   errorMessage = '';
   isSuccessful = false;
   isCreateOrderFailed = false;
   isContantiMethod = false;
-  
+  ordine: Order;
+  currentUser: any;
+
 
   
 
   
   constructor(private gestioneOrdineService: GestioneordineService, private http: HttpClient,private router:Router ) {
   }
-  ordine: Order;
+  
 
-  ngOnInit(): void { 
+  ngOnInit(): void {
+    this.currentUser = this.gestioneOrdineService.getUser();
   }
 
 

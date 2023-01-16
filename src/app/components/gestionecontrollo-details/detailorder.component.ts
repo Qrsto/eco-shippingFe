@@ -1,6 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';  
 import { SpedizioneService } from 'src/app/services/spedizione.service';
-import { OrdineService } from '../../services/ordine.service';
 import { Ordine } from './ordine';
 import { Spedizione } from './shipment';
   

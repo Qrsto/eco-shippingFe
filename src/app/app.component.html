@@ -23,7 +23,7 @@
       <li class="nav-item">
         <a href="/login" class="nav-link" routerLink="login">Accesso</a>
       </li>
-      
+
     </ul>
 
     <ul class="navbar-nav ml-auto" *ngIf="isLoggedIn">
@@ -45,4 +45,44 @@
   <div class="container">
     <router-outlet></router-outlet>
   </div>
+</div>
+
+<div class="footer-dark">
+  <footer>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-6 col-md-3 item">
+          <h3>Servizi</h3>
+          <ul>
+            <li><a href="https://angular.io/">Framework</a></li>
+            <li><a href="https://code.visualstudio.com/">Development front-end</a></li>
+            <li><a href="https://www.jetbrains.com/idea/">Development back-end</a></li>
+            <li><a href="https://www.phpmyadmin.net/">Hosting database</a></li>
+
+          </ul>
+        </div>
+        <div class="col-sm-6 col-md-3 item">
+          <h3>About</h3>
+          <ul>
+            <li><a routerLink="thanks">Ringraziamenti</a></li>
+            <li><a href="#">Team</a></li>
+          </ul>
+        </div>
+        <div class="col-md-6 item text">
+          <h3>Ecoshipping</h3>
+          <p>Eco-shipping nasce da un'idea di<a href="https://www.accenture.com/it-it">Accenture</a> PLC, nota multinazionale con sede legale
+             a Dublino che svolge attività di consulenza informatica e non solo, la quale è stata un punto di riferimento durante il processo
+             di sviluppo della web-app.
+          </p>
+        </div>
+        <!--inserire logo poliba e logo accenture con sito indirizzamento-->
+        <div class="col item social">
+          <a href="accenture.png"><i class="icon"></i></a>
+          <a href="#"><i class="icon ion-social-twitter"></i></a>
+          <a href="#"><i class="icon ion-social-instagram"></i></a>
+        </div>
+      </div>
+      <p class="copyright">EcoShip © 2023</p>
+    </div>
+  </footer>
 </div>

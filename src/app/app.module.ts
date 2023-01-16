@@ -21,6 +21,7 @@ import { RegisterComponent } from './components/register/register.component';
 
 import { httpInterceptorProviders } from './helpers/http.interceptor';
 import { ListaOrdiniComponent } from './components/gestionecontrollo-details/listaordini.component';
+import { AboutComponent } from './components/about/about.component';
 
 
 @NgModule({
@@ -38,6 +39,7 @@ import { ListaOrdiniComponent } from './components/gestionecontrollo-details/lis
     LoginComponent,
     RegisterComponent,
     ListaOrdiniComponent,
+    AboutComponent,
     
   ],
   imports: [

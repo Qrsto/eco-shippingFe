@@ -13,6 +13,7 @@ import { CreazioneordineComponent } from './components/creazioneordine/creazione
 import { PagamentoComponent } from './components/pagamento/pagamento.component';
 import { ListaOrdiniComponent } from './components/gestionecontrollo-details/listaordini.component';
 import { DetailOrderComponent } from './components/gestionecontrollo-details/detailorder.component';
+import { AboutComponent } from './components/about/about.component';
 
 const routes: Routes = [
   { path: 'home', component: HomeComponent },
@@ -26,7 +27,8 @@ const routes: Routes = [
   { path: 'getOrders', component: ListaOrdiniComponent},
   { path: 'payment', component: PagamentoComponent},
   { path: 'shipment', component: DetailOrderComponent},
-  { path: '', redirectTo: 'home', pathMatch: 'full' }
+  { path: '', redirectTo: 'home', pathMatch: 'full' },
+  { path: 'thanks', component: AboutComponent}
 ];
 
 @NgModule({

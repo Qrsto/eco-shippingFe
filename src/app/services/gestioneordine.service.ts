@@ -13,7 +13,7 @@ const httpOptions = {
 };
 
 //api "radice"
-const baseUrl = 'http://localhost:8080/api/order'
+const baseUrl = 'http://localhost:8080/api/order/'
 const USER_KEY = 'auth-user';
 
 @Injectable({

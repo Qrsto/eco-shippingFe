@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { nextTick } from 'process';
 import { AuthService } from 'src/app/services/auth.service';
 import { StorageService } from 'src/app/services/storage.service';
 
@@ -14,16 +15,19 @@ export class RegisterComponent implements OnInit {
     password: null,
     nome: null,
     cognome: null,
-    IndirizzoResidenza: null,
+    indirizzoResidenza: null,
     citta: null,
     cap: null,
     dataNasc: null,
     mobile: null,
-    iban: null
+    iban: null,
+    role: '1'
   };
   isSuccessful = false;
   isSignUpFailed = false;
   errorMessage = '';
+  
+
 
   constructor(private authService: AuthService) { }
 
@@ -31,13 +35,20 @@ export class RegisterComponent implements OnInit {
   }
 
   onSubmit(): void {
-    const { username, email, password, nome, cognome, IndirizzoResidenza, citta, cap, dataNasc, mobile, iban } = this.form;
+    const { username, email, password, nome, cognome, indirizzoResidenza, citta, cap, dataNasc, mobile, iban, role } = this.form;
 
-    this.authService.register(username, email, password, nome, cognome, IndirizzoResidenza, citta, cap, dataNasc, mobile, iban).subscribe({
+    this.authService.register(username, email, password, nome, cognome, indirizzoResidenza, citta, cap, dataNasc, mobile, iban, role).subscribe({
       next: data => {
         console.log(data);
+        if (data.role == "1") {
+          data.role = "ROLE_USER";
+        }
+        else if (data.role == "2"){
+          data.role = "ROLE_RIDER";
+        }
         this.isSuccessful = true;
         this.isSignUpFailed = false;
+        console.log(data);
       },
       error: err => {
         this.errorMessage = err.error.message;

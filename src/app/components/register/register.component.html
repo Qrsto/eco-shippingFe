@@ -195,6 +195,18 @@
       </div>
 
       <div class="form-group">
+          <label for="role">
+            Tipo Utente
+          </label>
+          <select id="role" name="role" [(ngModel)]="form.role" class="form-control">
+            <option value="1">ROLE_USER</option>
+            <option value="2">ROLE_RIDER</option>
+          </select>
+      </div>
+      
+      
+
+      <div class="form-group">
         <label for="mobile">IBAN</label>
         <input
           type="text"

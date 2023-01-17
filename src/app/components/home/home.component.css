@@ -1,15 +1,21 @@
-body,
-html {
+html, body, app-root {
   height: 100%;
-}
+  margin: 0;
+  
+  }
 
-.bg {
-  /* The image used */
-  background-image: url("https://mdbootstrap.com/img/Photos/Horizontal/Nature/full page/img(20).webp");
-  /* Full height */
-  height: 100%;
-  /* Center and scale the image nicely */
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
+#titolo{
+  padding-top:100px;
+  padding-left:150px;
+  font-size: 60px;
+  font-weight: bold;
+  color: rgb(31, 155, 0);
+
+}
+#sottotitolo{
+  padding-top:0px;
+  padding-left:280px;
+  font-size: 35px;
+  font-weight: bold;
+
 }

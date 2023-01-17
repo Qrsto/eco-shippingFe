@@ -1,7 +1,7 @@
-p{
-font-size: 12px;
+*{
+  font-family: 'Roboto', sans-serif;
+  font-family: 'Ubuntu', sans-serif;
 }
-
 .footer-dark {
     padding:50px 0;
     color:#f0f9ff;
@@ -67,16 +67,16 @@ font-size: 12px;
   }
   
   .footer-dark .item.social > a {
-    font-size:20px;
+    font-size:22px;
     width:36px;
     height:36px;
-    line-height:36px;
+    line-height:42px;
     display:inline-block;
     text-align:center;
     border-radius:50%;
     box-shadow:0 0 0 1px rgba(255,255,255,0.4);
     margin:0 8px;
-    color:#fff;
+    color:rgb(255, 255, 255);
     opacity:0.75;
   }
   
@@ -93,11 +93,14 @@ font-size: 12px;
   }
 
 #app{
-  display: flex;
   flex-direction: column;
   min-height: 100vh;
+  
 }
 
-#container{
-  flex:1;
+#bg{
+  height: 100vh;
+  width: 100vw;
+  background: url('../assets/bg.png') center;
+  background-size: cover;
 }

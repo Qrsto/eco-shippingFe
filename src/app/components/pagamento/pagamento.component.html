@@ -70,7 +70,7 @@
     </div>
     <br>
     <div class="col-md-12">
-      <button class="btn btn-primary" (click)="onSubmit(form.cardNumber,form.codiceCvv)">Concludi e paga</button>
+      <button class="btn btn-success" (click)="onSubmit(form.cardNumber,form.codiceCvv)">Paga e concludi</button>
     </div>
     <div class="form-group">
       <div *ngIf="isCreatePaymentFailed" class="alert alert-danger" role="alert">
@@ -78,7 +78,7 @@
       </div>
     </div>
    </form>
-   <div class="alert alert-success" *ngIf="isSuccessful" style="color:darkgreen;">
+   <div class="alert alert-success" *ngIf="isSuccessful" style="color:darkgreen">
       Grazie. <br>
       Un rider sarà subito da te
    </div>

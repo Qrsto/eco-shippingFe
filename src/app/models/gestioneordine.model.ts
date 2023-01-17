@@ -1,5 +1,4 @@
-import { FasciaOraria } from "../enums/fascia-oraria";
-import { MetodoPagamento } from "../enums/metodo-pagamento";
+
 
 export class Gestioneordine {
 
@@ -8,7 +7,7 @@ export class Gestioneordine {
     indirizzoConsegna?: string;
     volumeSpedizione?: number;
     pesoSpedizione?: number;
-    metodoPagamento?: MetodoPagamento;
+    metodoPagamento?: string;
     noteConsegna?: string;
     costoFinale?: number;
 

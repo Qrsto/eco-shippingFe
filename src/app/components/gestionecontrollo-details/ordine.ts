@@ -1,5 +1,4 @@
-import { FasciaOraria } from "../enums/fascia-oraria";
-import { MetodoPagamento } from "../enums/metodo-pagamento";
+
 
 export interface Ordine {  
   
@@ -10,8 +9,8 @@ export interface Ordine {
     volumeSpedizione:number;
     pesoSpedizione: number;
     numTelefonoDestinatario: String;
-    metodoPagamento: MetodoPagamento;
-    fasciaOraria: FasciaOraria;
+    metodoPagamento: string;
+    fasciaOraria: string;
     noteConsegna: String;
     costoFinale: number;
     longitudinePartenza: number;

@@ -3,8 +3,6 @@ import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs/internal/Observable';
 import { Gestioneordine } from '../models/gestioneordine.model';
 import { Order } from '../components/orderlist/order';
-import { MetodoPagamento } from '../enums/metodo-pagamento';
-import { FasciaOraria } from '../enums/fascia-oraria';
 import { OrderService } from '../components/orderlist/orderlist.service';
 
 //header per inserimento post 
@@ -55,8 +53,8 @@ export class GestioneordineService {
     volumeSpedizione: number,
     pesoSpedizione: number,
     numTelefonoDestinatario: string,
-    metodoPagamento : MetodoPagamento,
-    fasciaOraria : FasciaOraria,
+    metodoPagamento : string,
+    fasciaOraria : string,
     noteConsegna : string,
   ): Observable<any> {
     return this.http.post(

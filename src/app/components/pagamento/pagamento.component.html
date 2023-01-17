@@ -54,7 +54,7 @@
     <div class="col-md-6">
       <label for="codiceCvv" class="form-label">CVV</label>
       <input 
-        type="number" 
+        type="text" 
         class="form-control" 
         id="codiceCvv" 
         required 
@@ -70,15 +70,15 @@
     </div>
     <br>
     <div class="col-md-12">
-      <button class="btn btn-primary" onclick="">Concludi e paga</button>
+      <button class="btn btn-primary" (click)="onSubmit(form.cardNumber,form.codiceCvv)">Concludi e paga</button>
     </div>
     <div class="form-group">
-      <div *ngIf="f.submitted && isCreatePaymentFailed" class="alert alert-danger" role="alert">
+      <div *ngIf="isCreatePaymentFailed" class="alert alert-danger" role="alert">
         Payment Failed: {{ errorMessage }}
       </div>
     </div>
    </form>
-   <div class="alert alert-success" *ngIf="isSuccessful">
+   <div class="alert alert-success" *ngIf="isSuccessful" style="color:darkgreen;">
       Grazie. <br>
       Un rider sarà subito da te
    </div>

@@ -50,28 +50,17 @@ export class PagamentoComponent implements OnInit {
     }
     */
 
+  
 
-
-  onSubmit() : boolean {
-    const {
-      cardNumber,
-      dataScadenza,
-      cvvNumber,
-      titolareCarta,
-    } = this.form
-
-
-    
-   
-    if (cardNumber.length == 16 && cvvNumber.length == 3){
-      return this.isSuccessful = true;
-    }
-    else {
-      return this.isCreatePaymentFailed = true;
-    }
-    };
-
+  onSubmit(cardNumber:string,cvvNumber:string){
+    this.form.cardNumber = cardNumber;
+    this.form.cvvNumber = cvvNumber;
+    this.isSuccessful = true;
   }
+    
+    
+
+}
 
   
     

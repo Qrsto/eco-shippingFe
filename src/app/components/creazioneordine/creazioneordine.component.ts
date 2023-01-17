@@ -4,7 +4,6 @@ import { Router } from '@angular/router';
 import { nextTick } from 'process';
 import { GestioneordineService } from 'src/app/services/gestioneordine.service';
 import { StorageService } from 'src/app/services/storage.service';
-import { MetodoPagamento } from '../enums/metodo-pagamento';
 import { OrderService } from '../orderlist/orderlist.service';
 import { Order } from './order';
 import { ListaOrdiniComponent } from '../gestionecontrollo-details/listaordini.component';
@@ -26,13 +25,14 @@ export class CreazioneordineComponent implements OnInit {
     volumeSpedizione: null,
     pesoSpedizione: null,
     numTelefonoDestinatario: null,
-    fasciaOraria: null,
     noteConsegna: null,
     costoFinale: null,
     longitudinePartenza: null,
     latitudinePartenza: null,
     longitudineDestinazione: null,
-    latitudineDestinazione: null
+    latitudineDestinazione: null,
+    metodoPagamento:'CONTANTI',
+    fasciaOraria:'MATTINA'
   };
 
 
@@ -70,20 +70,12 @@ export class CreazioneordineComponent implements OnInit {
       numTelefonoDestinatario,
       metodoPagamento,
       fasciaOraria,
-      noteConsegna
+      noteConsegna,
       } = this.form;
 
-    this.gestioneOrdineService.create(
-      this.form.indirizzoPartenza,
-      this.form.indirizzoDestinazione,
-      this.form.volumeSpedizione,
-      this.form.pesoSpedizione,
-      this.form.numTelefonoDestinatario,
-      this.form.metodoPagamento,
-      this.form.fasciaOraria,
-      this.form.noteConsegna,
-      ).subscribe({
-        next : data => {
+    //Richiamo metodo del service per creazione dell'ordine  
+    this.gestioneOrdineService.create(indirizzoPartenza,indirizzoDestinazione,volumeSpedizione,pesoSpedizione,numTelefonoDestinatario,metodoPagamento,fasciaOraria,noteConsegna)
+    .subscribe({ next : data => {
           if ("CONTANTI" == this.form.metodoPagamento) {
             this.isContantiMethod = true;
           }

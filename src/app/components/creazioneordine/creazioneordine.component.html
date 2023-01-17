@@ -41,6 +41,18 @@
           indirizzo di consegna vuoto o errato! 
         </div>
       </div>
+      
+      <div class="form-group">
+        <label for="fasciaOraria">
+          Scegli in che momento della giornata preferiresti ricevere l'ordine: 
+        </label>
+        <select id="fasciaOraria" name="fasciaOraria" [(ngModel)]="form.fasciaOraria" class="form-control">
+          <option value="MATTINA" #selected>Mattina</option>
+          <option value="POMERIGGIO">Pomeriggio</option>
+          <option value="SERA">Sera</option>
+        </select>
+      </div>
+
       <div class="form-group">
         <label for="volumeSpedizione">Volume spedizione:</label>
         <input
@@ -56,6 +68,7 @@
           Volume vuoto o errato!
         </div>
       </div>
+      
       <div class="form-group">
         <label for="pesoSpedizione">Peso del pacco in kg: </label>
         <input
@@ -71,6 +84,7 @@
           Peso del prodotto vuoto o errato!
         </div>
       </div>
+
       <div class="form-group">
         <label for="numTelefonoDestinatario">Numero di telefono: </label>
         <input
@@ -87,40 +101,6 @@
         </div>
       </div>
 
-      <!--
-        API PER METODO DI PAGAMENTO 
-      -->
-      <div class="form-group">
-        <label for="metodoPagamento">Metodo di pagamento <b>("CONTANTI" o "CC")</b>: </label>
-        <input
-          type="text"
-          class="form-control"
-          name="indi"
-          [(ngModel)]="form.metodoPagamento"
-          required
-          #metodoPagamento="ngModel"
-          [ngClass]="{ 'is-invalid': f.submitted && metodoPagamento.errors }"
-        />
-        <div *ngIf="metodoPagamento.errors && f.submitted" class="invalid-feedback">
-          Metodo di pagamento vuoto o errato!
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="fasciaOraria">In che momento della giornata vorresti avvenisse il tuo ordine?<br>
-        <b>MATTINA, POMERIGGIO o SERA</b></label>
-        <input
-          type="text"
-          class="form-control"
-          name="indi"
-          [(ngModel)]="form.fasciaOraria"
-          required
-          #fasciaOraria="ngModel"
-          [ngClass]="{ 'is-invalid': f.submitted && fasciaOraria.errors }"
-        />
-        <div *ngIf="fasciaOraria.errors && f.submitted" class="invalid-feedback">
-          Fascia oraria vuota o errata!
-        </div>
-      </div>
       <div class="form-group">
         <label for="noteConsegna">Descrivici la tua consegna: </label>
         <input
@@ -137,66 +117,21 @@
         </div>
       </div>
 
-      <!--<div class="form-group">
-        <label for="longitudinePartenza">Longitudine partenza</label>
-        <input
-          type="text"
-          class="form-control"
-          name="indi"
-          [(ngModel)]="form.longitudinePartenza"
-          required
-          #longitudinePartenza="ngModel"
-          [ngClass]="{ 'is-invalid': f.submitted && longitudinePartenza.errors }"
-        />
-        <div *ngIf="longitudinePartenza.errors && f.submitted" class="invalid-feedback">
-          Username is required!
-        </div>
-      </div>
       <div class="form-group">
-        <label for="latitudinePartenza">Latitudine partenza: </label>
-        <input
-          type="text"
-          class="form-control"
-          name="indi"
-          [(ngModel)]="form.latitudinePartenza"
-          required
-          #latitudinePartenza="ngModel"
-          [ngClass]="{ 'is-invalid': f.submitted && latitudinePartenza.errors }"
-        />
-        <div *ngIf="latitudinePartenza.errors && f.submitted" class="invalid-feedback">
-          Username is required!
-        </div>
+        <label for="metodoPagamento">
+          Scegli un metodo di pagamento
+        </label>
+        <select id="metodoPagamento" name="metodoPagamento" [(ngModel)]="form.metodoPagamento" class="form-control">
+          <option value="CONTANTI">Contanti</option>
+          <option value="CC">Carta di debito</option>
+        </select>
       </div>
-      <div class="form-group">
-        <label for="longitudineDestinazione">Longitudine Destinazione:</label>
-        <input
-          type="text"
-          class="form-control"
-          name="indi"
-          [(ngModel)]="form.longitudineDestinazione"
-          required
-          #longitudineDestinazione="ngModel"
-          [ngClass]="{ 'is-invalid': f.submitted && longitudineDestinazione.errors }"
-        />
-        <div *ngIf="longitudineDestinazione.errors && f.submitted" class="invalid-feedback">
-          Username is required!
-        </div>
-      </div>
-      <div class="form-group">
-        <label for="latitudineDestinazione">latitudine destinazione: </label>
-        <input
-          type="text"
-          class="form-control"
-          name="indi"
-          [(ngModel)]="form.latitudineDestinazione"
-          required
-          #latitudineDestinazione="ngModel"
-          [ngClass]="{ 'is-invalid': f.submitted && latitudineDestinazione.errors }"
-        />
-        <div *ngIf="latitudineDestinazione.errors && f.submitted" class="invalid-feedback">
-          Username is required!
-        </div>
-      </div> -->
+
+
+
+
+
+
 <br>        
       <div class="form-group">
         <button class="btn btn-success btn-block btn-lg">

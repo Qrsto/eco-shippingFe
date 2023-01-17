@@ -2,7 +2,7 @@
 <div class="container">
     <h5 class="text-center mt-3">Ordini di {{ currentUser.username }}</h5>
     <div class="d-flex my-2">
-        <a href="http://localhost:4200/createorder" routerLink="createorder" class="btn btn-outline-success ms-auto">Crea un nuovo ordine ora!</a>
+        <button class="btn btn-outline-success ms-auto" (click)="onCreateOrder()">Crea un nuovo ordine ora!</button>
     </div>
     <div class="table-responsive">
         <table class="table table-bordered p-0 m-0">

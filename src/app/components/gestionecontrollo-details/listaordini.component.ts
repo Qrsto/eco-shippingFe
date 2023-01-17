@@ -1,55 +1,62 @@
-import { Component, Input, OnInit } from '@angular/core';  
+import { Component, Input, OnInit } from '@angular/core';
 import { Ordine } from './ordine';
 import { GestioneordineService } from 'src/app/services/gestioneordine.service';
-  
-@Component({  
-  selector: 'app-listaordini',  
-  templateUrl: './listaordini.component.html',  
-  styleUrls: ['./listaordini.component.css']  
-})  
-export class ListaOrdiniComponent implements OnInit { 
+import { Router } from '@angular/router';
+
+@Component({
+  selector: 'app-listaordini',
+  templateUrl: './listaordini.component.html',
+  styleUrls: ['./listaordini.component.css']
+})
+export class ListaOrdiniComponent implements OnInit {
 
   @Input() id: number;
-   currentUser: any;
-   orders: Ordine[] = [];
-  
- constructor(private gestioneOrdineServices:GestioneordineService) { }  
-   
-  ngOnInit(): void {    
+  currentUser: any;
+  orders: Ordine[] = [];
+
+
+
+  constructor(private gestioneOrdineServices: GestioneordineService, private router:Router) { }
+
+  ngOnInit(): void {
     this.currentUser = this.gestioneOrdineServices.getUser();
-    this.getOrderbyId_utente(this.currentUser.id); 
-    
-    };     
-  
-    private getOrders() {
-        this.gestioneOrdineServices.getOrdersList()
-        .subscribe(data => {
-            this.orders = data;
-        }
-        , error => {
-            console.log(error.error.message);
-        }
-        );
-    }
+    this.getOrderbyId_utente(this.currentUser.id);
 
-    private getOrderbyId_utente(id_utente : number) {
+  };
 
-      this.gestioneOrdineServices.getOrder(id_utente)
+  private getOrders() {
+    this.gestioneOrdineServices.getOrdersList()
       .subscribe(data => {
-          this.orders = data;
+        this.orders = data;
       }
-      , error => {
-        console.log(error.error.message);
-      }
+        , error => {
+          console.log(error.error.message);
+        }
       );
-    }
+  }
 
-    public setOrderId(id : number) {
+  private getOrderbyId_utente(id_utente: number) {
 
-      sessionStorage.setItem("id", id.toString());
+    this.gestioneOrdineServices.getOrder(id_utente)
+      .subscribe(data => {
+        this.orders = data;
+      }
+        , error => {
+          console.log(error.error.message);
+        }
+      );
+  }
 
-    }
+  onCreateOrder() {
+    this.router.navigateByUrl("/createorder"); 
+  }
 
-    
-  
+  public setOrderId(id: number) {
+
+    sessionStorage.setItem("id", id.toString());
+
+  }
+
+
+
 }  

@@ -32,7 +32,8 @@ export class CreazioneordineComponent implements OnInit {
     longitudineDestinazione: null,
     latitudineDestinazione: null,
     metodoPagamento:'CONTANTI',
-    fasciaOraria:'MATTINA'
+    fasciaOraria:'MATTINA',
+    id_utente : null,
   };
 
 
@@ -43,6 +44,7 @@ export class CreazioneordineComponent implements OnInit {
   isContantiMethod = false;
   ordine: Order;
   currentUser: any;
+  id_utente : number;
 
 
   
@@ -73,8 +75,10 @@ export class CreazioneordineComponent implements OnInit {
       noteConsegna,
       } = this.form;
 
+      this.id_utente = this.currentUser.id;
+
     //Richiamo metodo del service per creazione dell'ordine  
-    this.gestioneOrdineService.create(indirizzoPartenza,indirizzoDestinazione,volumeSpedizione,pesoSpedizione,numTelefonoDestinatario,metodoPagamento,fasciaOraria,noteConsegna)
+    this.gestioneOrdineService.create(indirizzoPartenza,indirizzoDestinazione,volumeSpedizione,pesoSpedizione,numTelefonoDestinatario,metodoPagamento,fasciaOraria,noteConsegna,this.id_utente)
     .subscribe({ next : data => {
           if ("CONTANTI" == this.form.metodoPagamento) {
             this.isContantiMethod = true;

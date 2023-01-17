@@ -56,6 +56,7 @@ export class GestioneordineService {
     metodoPagamento : string,
     fasciaOraria : string,
     noteConsegna : string,
+    id_utente: number
   ): Observable<any> {
     return this.http.post(
       baseUrl + `new`,{
@@ -67,7 +68,7 @@ export class GestioneordineService {
         metodoPagamento,
         fasciaOraria,
         noteConsegna,
-        
+        id_utente,
       }, httpOptions
     );
 

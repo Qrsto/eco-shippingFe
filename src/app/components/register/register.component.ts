@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { nextTick } from 'process';
 import { AuthService } from 'src/app/services/auth.service';
 import { StorageService } from 'src/app/services/storage.service';
+import { role } from './role';
 
 @Component({
   selector: 'app-register',
@@ -29,7 +30,18 @@ export class RegisterComponent implements OnInit {
   
 
 
-  constructor(private authService: AuthService) { }
+  languageObjects : role[];
+  selectedObject : role;
+
+  constructor(private authService: AuthService) { 
+    this.languageObjects= [
+      {id: 1, name: "ROLE_USER"},
+      {id: 2, name: "ROLE_RIDER"},
+
+    ]
+  }
+
+
 
   ngOnInit(): void {
   }

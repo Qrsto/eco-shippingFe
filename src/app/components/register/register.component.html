@@ -194,6 +194,14 @@
         </div>
       </div>
 
+      <select [(ngModel)]="selectedObject">
+        <option *ngFor="let rol of languageObjects" [ngValue]="rol">
+             {{rol.name}}
+         </option>
+      </select>
+
+      {{selectedObject | json}}
+
       <div class="form-group">
           <label for="role">
             Tipo Utente

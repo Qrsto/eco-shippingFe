@@ -20,7 +20,6 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent},
   { path: 'register', component: RegisterComponent},
   { path: 'profile', component: ProfileComponent },
-
   { path: 'rider', component: BoardRiderComponent },
   { path: 'admin', component: BoardAdminComponent },
   { path: 'createorder', component: CreazioneordineComponent},

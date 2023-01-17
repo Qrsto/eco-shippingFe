@@ -11,7 +11,7 @@ export class AppComponent {
   private roles: string[] = [];
   isLoggedIn = false;
   showAdminBoard = false;
-  showModeratorBoard = false;
+  showRiderBoard = false;
   username?: string;
 
   constructor(private storageService: StorageService, private authService: AuthService) { }
@@ -24,7 +24,7 @@ export class AppComponent {
       this.roles = user.roles;
 
       this.showAdminBoard = this.roles.includes('ROLE_ADMIN');
-      this.showModeratorBoard = this.roles.includes('ROLE_MODERATOR');
+      this.showRiderBoard = this.roles.includes('ROLE_RIDER');
 
       this.username = user.username;
     }

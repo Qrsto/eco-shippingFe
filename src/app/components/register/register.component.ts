@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { nextTick } from 'process';
 import { AuthService } from 'src/app/services/auth.service';
 import { StorageService } from 'src/app/services/storage.service';
-import { role } from './role';
 
 @Component({
   selector: 'app-register',
@@ -28,17 +27,7 @@ export class RegisterComponent implements OnInit {
   isSignUpFailed = false;
   errorMessage = '';
   
-
-
-  languageObjects : role[];
-  selectedObject : role;
-
-  constructor(private authService: AuthService) { 
-    this.languageObjects= [
-      {id: 1, name: "ROLE_USER"},
-      {id: 2, name: "ROLE_RIDER"},
-
-    ]
+    constructor(private authService: AuthService) { 
   }
 
 
@@ -52,15 +41,9 @@ export class RegisterComponent implements OnInit {
     this.authService.register(username, email, password, nome, cognome, indirizzoResidenza, citta, cap, dataNasc, mobile, iban, role).subscribe({
       next: data => {
         console.log(data);
-        if (data.role == "1") {
-          data.role = "ROLE_USER";
-        }
-        else if (data.role == "2"){
-          data.role = "ROLE_RIDER";
-        }
+
         this.isSuccessful = true;
         this.isSignUpFailed = false;
-        console.log(data);
       },
       error: err => {
         this.errorMessage = err.error.message;

@@ -194,21 +194,15 @@
         </div>
       </div>
 
-      <select [(ngModel)]="selectedObject">
-        <option *ngFor="let rol of languageObjects" [ngValue]="rol">
-             {{rol.name}}
-         </option>
-      </select>
 
-      {{selectedObject | json}}
 
       <div class="form-group">
           <label for="role">
             Tipo Utente
           </label>
           <select id="role" name="role" [(ngModel)]="form.role" class="form-control">
-            <option value="1">ROLE_USER</option>
-            <option value="2">ROLE_RIDER</option>
+            <option value="ROLE_USER">Utente</option>
+            <option value="ROLE_RIDER">Rider - IBAN OBBLIGATORIO</option>
           </select>
       </div>
       
@@ -221,7 +215,6 @@
           class="form-control"
           name="iban"
           [(ngModel)]="form.iban"
-          required
           iban
           #iban="ngModel"
         />

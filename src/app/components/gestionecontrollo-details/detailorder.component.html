@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container"><br><br>
     <h5 *ngIf="shipment.id != 0" class="text-center mt-3"> Spedizione #{{ shipment.id }}</h5>
     <div class="table-responsive">
         <table class="table table-bordered p-0 m-0">
@@ -6,16 +6,15 @@
                 <tr>
                     <th scope="col">#</th>
                     <th scope="col">Data Evasione</th>
-                    <th scope="col">Id Rider</th>
+                    <th scope="col">Assegnato</th>
                     <th scope="col">Stato Attuale</th>
                 </tr>
             </thead>
-            <h2 *ngIf="shipment.id == 0">Attendi che il tuo ordine sia preso in carico da un rider!</h2>
-            <tbody *ngIf="shipment.id != 0">
+            <tbody>
                 <tr>
                     <td>{{ shipment.id}}</td>
                     <td>{{ shipment.dataEvasione }}</td>
-                    <td>{{ shipment.idRider}}</td>
+                    <td>Si</td>
                     <td>{{ shipment.tipoStato }}</td>
                 </tr>
             </tbody>

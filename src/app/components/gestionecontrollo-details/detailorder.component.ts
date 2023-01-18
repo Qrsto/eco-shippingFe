@@ -19,7 +19,7 @@ export class DetailOrderComponent implements OnInit {
 
     shipment : Spedizione
 
-    private getShipmentbyId(id : number) {
+    private getShipmentbyId(id: number) {
 
         this.spedizioneservice.getShipment(id)
         .subscribe(data => {

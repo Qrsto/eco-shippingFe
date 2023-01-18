@@ -56,7 +56,7 @@ export class GestioneordineService {
     metodoPagamento : string,
     fasciaOraria : string,
     noteConsegna : string,
-    id_utente: number
+    id_utente: number,
   ): Observable<any> {
     return this.http.post(
       baseUrl + `new`,{

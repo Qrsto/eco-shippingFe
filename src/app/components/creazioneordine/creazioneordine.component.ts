@@ -47,7 +47,7 @@ export class CreazioneordineComponent implements OnInit {
   id_utente : number;
 
 
-  
+
 
   
   constructor(private gestioneOrdineService: GestioneordineService, private http: HttpClient,private router:Router ) {
@@ -72,7 +72,7 @@ export class CreazioneordineComponent implements OnInit {
       numTelefonoDestinatario,
       metodoPagamento,
       fasciaOraria,
-      noteConsegna,
+      noteConsegna
       } = this.form;
 
       this.id_utente = this.currentUser.id;
@@ -80,6 +80,7 @@ export class CreazioneordineComponent implements OnInit {
     //Richiamo metodo del service per creazione dell'ordine  
     this.gestioneOrdineService.create(indirizzoPartenza,indirizzoDestinazione,volumeSpedizione,pesoSpedizione,numTelefonoDestinatario,metodoPagamento,fasciaOraria,noteConsegna,this.id_utente)
     .subscribe({ next : data => {
+        const costoFinale= (3+ (pesoSpedizione*0.6));
           if ("CONTANTI" == this.form.metodoPagamento) {
             this.isContantiMethod = true;
           }

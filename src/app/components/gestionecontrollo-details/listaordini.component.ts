@@ -52,7 +52,7 @@ export class ListaOrdiniComponent implements OnInit {
   }
 
   public setOrderId(id: number) {
-
+    id++;
     sessionStorage.setItem("id", id.toString());
 
   }

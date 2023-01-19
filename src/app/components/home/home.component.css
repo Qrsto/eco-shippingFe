@@ -23,10 +23,11 @@ html, body, app-root {
 
 #getstart{
   padding-top: 200px;
-  padding-left: 500px;
-  font-size: 30px;
+  padding-left: 900px;
+  font-size: 40px;
   font-weight: bold;
-
+  text-align: center;
+  
 }
 
 
